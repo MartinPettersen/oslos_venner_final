@@ -1,16 +1,13 @@
 import React from "react";
 import Logo from "./(navigation)/Logo";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = () => {
   return (
-    <div className="z-1 absolute w-screen p-12 flex justify-between">
+    <div className="z-1 absolute w-screen pt-[127px] sm:p-12 sm:pl-[127px] sm:pr-[127px] flex flex-col sm:flex-row items-center justify-between">
       <Logo />
-      <div className="flex gap-4 text-white dark:text-grey text-[32px] font-semibold">
-        <div>Admin</div>
-        <div>Min Side</div>
-        <div>Forum</div>
-        <div>Login</div>
-      </div>
+      <HamburgerMenu />
+      
     </div>
   );
 };

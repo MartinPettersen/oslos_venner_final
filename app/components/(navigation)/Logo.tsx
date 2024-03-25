@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Alex_Brush } from "next/font/google";
 import { La_Belle_Aurore } from "next/font/google";
 import { useTheme } from "next-themes";
@@ -8,8 +8,15 @@ const alex = Alex_Brush({ subsets: ["latin"], weight: "400" });
 const bella = La_Belle_Aurore({ subsets: ["latin"], weight: "400" });
 
 const Logo = () => {
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
+  if (!mounted) {
+    return null
+  }
   return (
     <div className="flex dark:gap-1 flex-col dark:flex-row">
       {theme === "light" ? (
@@ -32,7 +39,6 @@ const Logo = () => {
           >
             Oslo{"'"}s Venner
           </div>
-
         </div>
       )}
     </div>
