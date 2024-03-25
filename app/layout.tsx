@@ -18,10 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-soft-pink dark:bg-black`}>
+      <body
+        className={`${inter.className} bg-soft-pink dark:bg-gradient-to-r from-dark-grey to-black`}
+      >
         <ThemeProvider attribute="class">
           <Navbar />
-          {children}</ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -8,8 +8,8 @@ export default function Home() {
   const {setTheme} = useTheme();
   
   useEffect(() => {
-     setTheme('light')
-    //setTheme('dark')
+    setTheme('light')
+    // setTheme('dark')
   }, [])
 
   return (

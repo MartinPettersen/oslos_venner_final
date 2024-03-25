@@ -3,9 +3,9 @@ import Logo from "./(navigation)/Logo";
 
 const Navbar = () => {
   return (
-    <div className="bg-orange p-12 flex justify-between">
+    <div className="z-1 absolute w-screen p-12 flex justify-between">
       <Logo />
-      <div className="flex gap-4">
+      <div className="flex gap-4 text-white dark:text-grey text-[32px] font-semibold">
         <div>Admin</div>
         <div>Min Side</div>
         <div>Forum</div>
