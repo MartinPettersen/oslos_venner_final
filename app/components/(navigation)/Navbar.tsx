@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./(navigation)/Logo";
+import Logo from "./Logo";
 import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = () => {

@@ -10,7 +10,7 @@ const HamburgerMenu = () => {
     <div className="flex flex-col  items-center justify-center">
       <Bars3Icon
         onClick={() => setToggle(!toggle)}
-        className="h-8 w-8 rounded-md sm:hidden"
+        className="h-8 w-[50px] font-bold rounded-md sm:hidden text-green dark:text-grey"
       />
       {!toggle ? null : (
         <NavMenu />
