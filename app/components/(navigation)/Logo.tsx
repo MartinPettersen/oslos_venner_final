@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Alex_Brush } from "next/font/google";
 import { La_Belle_Aurore } from "next/font/google";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 const alex = Alex_Brush({ subsets: ["latin"], weight: "400" });
 const bella = La_Belle_Aurore({ subsets: ["latin"], weight: "400" });
@@ -17,8 +18,19 @@ const Logo = () => {
   if (!mounted) {
     return null
   }
+
+  /*
+<Link
+      href="/"
+      className=" text-purple-500 font-bold text-4xl sm:text-6xl flex items-center justify-center"
+    >
+      Oslo's Venner
+    </Link>
+
+  */
+
   return (
-    <div className="flex dark:gap-1 flex-col dark:flex-row">
+    <Link href="/" className="flex dark:gap-1 flex-col dark:flex-row">
       {theme === "light" ? (
         <div>
           <div
@@ -41,7 +53,7 @@ const Logo = () => {
           </div>
         </div>
       )}
-    </div>
+    </Link>
   );
 };
 

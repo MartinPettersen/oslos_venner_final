@@ -5,11 +5,16 @@ import { useEffect } from "react";
 
 export default function Home() {
 
-  const {setTheme} = useTheme();
+  const {theme, setTheme} = useTheme();
   
   useEffect(() => {
-    //setTheme('light')
-    setTheme('dark')
+    //setTheme('dark')
+    if (theme === 'light') {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+
   }, [])
 
   return (
