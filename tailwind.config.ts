@@ -29,7 +29,8 @@ const config: Config = {
       'brown': '#8F5B34',
       'light-brown': '#DAB692',
       'blue': '#8A9EA7',
-      'green': '#8D9B6A'
+      'green': '#8D9B6A',
+      'danger-red': '#F61717',
     },
   },
   plugins: [],
