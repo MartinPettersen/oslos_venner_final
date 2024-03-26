@@ -14,7 +14,10 @@ const HamburgerMenu = () => {
         className="h-8 w-[50px] font-bold rounded-md sm:hidden text-green dark:text-grey"
       />
       {!toggle ? null : (
-        <NavMenu />
+        <div  onClick={() => setToggle(!toggle)}>
+
+          <NavMenu />
+        </div>
       )}
       <div className=" hidden sm:flex flex-col sm:flex-row items-center justify-center gap-4 text-white dark:text-grey text-[32px] font-semibold">
           <Link href="/" className="relative hover:top-[2px] hover:left-[3px]">Admin</Link>
