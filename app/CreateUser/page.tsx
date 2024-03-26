@@ -7,7 +7,7 @@ const page = () => {
         
         <div className='flex flex-col items-center justify-center   w-full  sm:w-[40%] h-full sm:h-[100%]'>
 
-        <div className='text-3xl sm:text-6xl p-2 text-light-brown'>Ny Bruker</div>
+        <div className='text-3xl sm:text-6xl p-2 text-light-brown dark:text-grey'>Ny Bruker</div>
         <CreateUserForm />
         
         </div>
