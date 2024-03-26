@@ -1,8 +1,17 @@
 import React from 'react'
+import CreateUserForm from '../components/(createuser)/CreateUserForm'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div className='w-screen h-screen flex flex-col gap-4 items-center sm:items-start justify-center'>
+        
+        <div className='flex flex-col items-center justify-center   w-full  sm:w-[40%] h-full sm:h-[100%]'>
+
+        <div className='text-3xl sm:text-6xl p-2 text-light-brown'>Ny Bruker</div>
+        <CreateUserForm />
+        
+        </div>
+        </div>
   )
 }
 
