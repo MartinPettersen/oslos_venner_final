@@ -19,16 +19,6 @@ const Logo = () => {
     return null
   }
 
-  /*
-<Link
-      href="/"
-      className=" text-purple-500 font-bold text-4xl sm:text-6xl flex items-center justify-center"
-    >
-      Oslo's Venner
-    </Link>
-
-  */
-
   return (
     <Link href="/" className="flex dark:gap-1 flex-col dark:flex-row">
       {theme === "light" ? (
