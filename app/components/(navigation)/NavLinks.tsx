@@ -8,7 +8,7 @@ const NavLinks = async () => {
 
   return (
     <>
-      <Link href="/" className="relative hover:top-[2px] hover:left-[3px]">
+      <Link href="/Admin" className="relative hover:top-[2px] hover:left-[3px]">
         Admin
       </Link>
       <Link
