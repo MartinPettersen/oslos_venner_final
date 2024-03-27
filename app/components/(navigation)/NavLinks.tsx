@@ -7,7 +7,7 @@ const NavLinks = async () => {
   const session = await getServerSession(options);
 
   return (
-    <div>
+    <>
       <Link href="/" className="relative hover:top-[2px] hover:left-[3px]">
         Admin
       </Link>
@@ -30,7 +30,7 @@ const NavLinks = async () => {
           Login
         </Link>
       )}
-    </div>
+    </>
   );
 };
 
