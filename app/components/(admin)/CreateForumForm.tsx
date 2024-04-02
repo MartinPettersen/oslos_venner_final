@@ -1,13 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const CreateForumForm = () => {
+
+    const { data: session }: any = useSession();
+
   const router = useRouter();
   const [formData, setFormData] = useState({
     label: "",
     status: "clear",
     threads: [],
+    _createdBy: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -23,7 +28,7 @@ const CreateForumForm = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setErrorMessage("");
-
+    formData._createdBy = session.user.name;
     const res = await fetch("/api/Forums", {
       method: "POST",
       body: JSON.stringify({ formData }),
@@ -50,9 +55,9 @@ const CreateForumForm = () => {
           <label>Forum Navn</label>
           <input
             className="rounded-full pl-2 pr-2 text-black bg-soft-pink dark:rounded-none dark:bg-grey w-[80%]"
-            id="name"
+            id="label"
             type="text"
-            name="name"
+            name="label"
             required={true}
             onChange={handleChange}
             value={formData.label}
@@ -64,7 +69,7 @@ const CreateForumForm = () => {
         <div className="flex items-center justify-center p-4 sm:p-1 w-full">
           <input
             type="submit"
-            value="Opprett Bruker"
+            value="Opprett Forum"
             className="bg-brown dark:dark:bg-gradient-to-r from-dark-grey to-black text-soft-pink dark:text-pink rounded-full dark:rounded-none w-[80%] dark:w-[90%] dark:sm:w-[54%] dark:h-[30px]"
           />
         </div>
