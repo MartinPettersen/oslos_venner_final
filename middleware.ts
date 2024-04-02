@@ -9,11 +9,16 @@ export default withAuth(
         if (req.nextUrl.pathname.startsWith("/Admin") && req.nextauth.token!.role != "admin") {
             return NextResponse.rewrite(new URL("/Denied", req.url))
         }
-
+        if (req.nextUrl.pathname.startsWith("/Admin/CreateForum") && req.nextauth.token!.role != "admin") {
+            return NextResponse.rewrite(new URL("/Denied", req.url))
+        }
+        if (req.nextUrl.pathname.startsWith("/Admin/Reports") && req.nextauth.token!.role != "admin") {
+            return NextResponse.rewrite(new URL("/Denied", req.url))
+        }
     },{
     callbacks: {
         authorized: ({token}) => !!token
     }}
 )
 
-export const config = { matcher: ["/Admin"] }
+export const config = { matcher: ["/Admin", "/Admin/CreateForum", "/Admin/Reports"] }
