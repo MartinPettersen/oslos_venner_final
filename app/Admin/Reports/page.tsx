@@ -1,6 +1,5 @@
 import React from "react";
-import AdminNavBar from "../components/(admin)/AdminNavBar";
-import AdminLayout from "../components/(admin)/AdminLayout";
+import AdminLayout from "../../components/(admin)/AdminLayout";
 
 const page = () => {
   return (

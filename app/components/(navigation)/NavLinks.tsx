@@ -15,7 +15,7 @@ const NavLinks = () => {
   return (
     <>
     {session?.user?.role === "admin"?
-      <Link href="/Admin" className="relative hover:top-[2px] hover:left-[3px]">
+      <Link href="/Admin/Reports" className="relative hover:top-[2px] hover:left-[3px]">
         Admin
       </Link>
       : null}
