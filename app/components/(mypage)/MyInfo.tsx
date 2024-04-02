@@ -17,6 +17,7 @@ const MyInfo = ({user}: Props) => {
         <div>
             Status: Ikke Verifisert
         </div>
+        sjekke ut min max her
     </div>
   )
 }
