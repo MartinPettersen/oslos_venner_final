@@ -19,7 +19,7 @@ const Hamburger = () => {
 
           <NavMenu />
         </div>
-      )}
+      )}  
     </>
   )
 }

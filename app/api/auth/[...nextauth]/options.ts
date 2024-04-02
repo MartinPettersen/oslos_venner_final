@@ -22,8 +22,6 @@ export const options = {
             clientId: process.env.GOOGLE_ID!,
             clientSecret: process.env.GOOGLE_SECRET!,
         }),
-        
-        /*
         CredentialsProvider({
             name: "Credentials",
             credentials: {
@@ -59,7 +57,7 @@ export const options = {
                 }
                 return null;
             }
-        }),*/
+        }),
     ],
     callbacks: {
         async jwt({ token, user }: any) {

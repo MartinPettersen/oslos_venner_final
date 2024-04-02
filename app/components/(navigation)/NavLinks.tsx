@@ -1,10 +1,16 @@
+'use client'
+
 import Link from "next/link";
 import React from "react";
 import { getServerSession } from "next-auth";
+import { useSession, signOut } from "next-auth/react";
+
 import { options } from "@/app/api/auth/[...nextauth]/options";
 
-const NavLinks = async () => {
-  const session = await getServerSession(options);
+const NavLinks = () => {
+  // const session = await getServerSession(options);
+
+  const { data: session }: any = useSession();
 
   return (
     <>
