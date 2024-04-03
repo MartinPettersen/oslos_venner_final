@@ -34,7 +34,7 @@ const ForumContainer = () => {
     }, []);
 
   return (
-    <div className='border flex flex-col w-screen sm:w-[80%] h-[90%] mt-16 '>
+    <div className='flex flex-col items-center gap-4 p-4 w-screen sm:w-[80%] h-[90%] no-scrollbar overflow-y-auto  mt-16 '>
         {forums.map((forum, index) => (
             <ForumDisplay key={index} forum={forum} />
         ))}
