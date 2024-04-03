@@ -29,7 +29,7 @@ const CreateForumForm = () => {
     e.preventDefault();
     setErrorMessage("");
     formData._createdBy = session.user.name;
-    const res = await fetch("/api/Forums", {
+    const res = await fetch("/api/Forums/CreateForum", {
       method: "POST",
       body: JSON.stringify({ formData }),
       headers: new Headers({ "content-type": "application/json" }),
