@@ -1,5 +1,6 @@
 import { Forum } from "@/types/Forum";
 import { Thread } from "@/types/Thread";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 type Props = {
@@ -34,10 +35,10 @@ const ForumDisplay = ({ forum }: Props) => {
 
   return (
     <div className="w-[80%] flex gap-2 flex-col items-end">
-      <div className="bg-blue text-soft-pink dark:text-dark-grey dark:bg-gradient-to-r from-orange to-pink rounded-full dark:rounded-none flex justify-between w-[90%]">
+      <Link href={`../Forum/${forum.label}`} className="bg-blue text-soft-pink dark:text-dark-grey dark:bg-gradient-to-r from-orange to-pink rounded-full dark:rounded-none flex justify-between w-[90%]">
         <div className=" p-2">{forum.label}</div>
         <div className=" p-2">{`# ${forum.threads.length}`}</div>
-      </div>
+      </Link>
       <div className={`bg-green dark:bg-gradient-to-r from-orange to-pink rounded-full dark:rounded-none text-soft-pink dark:text-dark-grey text-xs w-[60%] ${typeof thread === 'undefined' ? 'hidden': ''} `}>
         <div className="p-2">
     
