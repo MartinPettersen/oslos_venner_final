@@ -6,6 +6,10 @@ export default withAuth(
         console.log(req.nextUrl.pathname);
         console.log(req.nextauth.token!.role);
 
+        if (req.nextUrl.pathname.startsWith("/MyPage") && !req.nextauth.token) {
+            return NextResponse.rewrite(new URL("/Denied", req.url))
+        }
+
         if (req.nextUrl.pathname.startsWith("/Admin") && req.nextauth.token!.role != "admin") {
             return NextResponse.rewrite(new URL("/Denied", req.url))
         }
@@ -21,4 +25,4 @@ export default withAuth(
     }}
 )
 
-export const config = { matcher: ["/Admin", "/Admin/CreateForum", "/Admin/Reports"] }
+export const config = { matcher: ["/Admin", "/Admin/CreateForum", "/Admin/Reports", "/MyPage"] }
