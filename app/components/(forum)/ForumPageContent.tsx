@@ -35,12 +35,12 @@ const ForumPageContent = ({forumLabel}: Props) => {
 
   return (
 <div className="flex w-screen h-screen items-center justify-end pt-44 sm:justify-center sm:pt-0 flex-col-reverse sm:flex-row gap-4 sm:gap-0">
-      <div className="w-[96%] sm:w-2/3 ">
+      <div className="w-[96%] sm:pl-6 sm:w-2/3 ">
         <div className="flex justify-between text-light-brown dark:text-grey text-xs">
           <div className="w-3/6">Tema</div>
-          <div className="w-1/6">Forfatter</div>
-          <div className="w-1/6">Dato</div>
-          <div className="w-1/6 flex justify-end">Svar</div>
+          <div className="w-1/6 sm:w-1/12">Forfatter</div>
+          <div className="w-1/6 sm:w-1/12">Dato</div>
+          <div className="w-1/6 sm:w-1/12 flex justify-end">Svar</div>
         </div>
         <div className='w-full flex flex-col gap-2'>
             {forum?.threads.map((thread, index) => (

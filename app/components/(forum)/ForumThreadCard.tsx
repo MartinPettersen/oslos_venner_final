@@ -35,9 +35,9 @@ const ForumThreadCard = ({ threadId }: Props) => {
   return (
     <div className="bg-blue dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey text-xs flex justify-between rounded-full dark:rounded-none p-1">
       <div className="w-3/6">{thread?.headline}</div>
-      <div className="w-1/6">{thread?.userName}</div>
-      <div className="w-1/6">{timeStamp}</div>
-      <div className="w-1/6 flex justify-end"># {thread?.replies.length}</div>
+      <div className="w-1/6 sm:w-1/12">{thread?.userName}</div>
+      <div className="w-1/6 sm:w-1/12">{timeStamp}</div>
+      <div className="w-1/6 sm:w-1/12 flex justify-end"># {thread?.replies.length}</div>
     </div>
   );
 };
