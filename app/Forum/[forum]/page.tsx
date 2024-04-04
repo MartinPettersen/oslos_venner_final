@@ -12,8 +12,8 @@ const page = ({ params }: Props) => {
 d
     </div>
     <div className=" w-1/3 sm:h-[60%] flex flex-col gap-2 sm:gap-4 items-center">
-        <div className="flex items-center justify-center text-3xl sm:text-6xl text-brown">{forumLabel}</div>
-        <div className="flex items-center justify-center text-md text-soft-pink p-2  bg-green w-26 rounded-full cursor-pointer">Nytt Innlegg</div>
+        <div className="flex items-center justify-center text-3xl sm:text-6xl text-brown dark:text-orange">{forumLabel}</div>
+        <div className="flex items-center justify-center text-md text-soft-pink dark:text-dark-grey p-2  bg-green dark:bg-gradient-to-r from-orange to-pink w-26 rounded-full dark:rounded-none cursor-pointer">Nytt Innlegg</div>
 
     </div>
 
