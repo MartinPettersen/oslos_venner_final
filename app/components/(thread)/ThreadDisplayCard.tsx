@@ -13,7 +13,7 @@ const ThreadDisplayCard = ({thread}: Props) => {
           <div className=" text-soft-pink flex text-xl items-center justify-center">
             {thread?.headline}
           </div>
-          <div className=" text-soft-pink font-bold text-3xl flex items-start justify-start ">{`\u00B7\u00B7\u00B7`}</div>
+          <div className=" text-soft-pink font-bold text-3xl flex items-start justify-start cursor-pointer">{`\u00B7\u00B7\u00B7`}</div>
         </div>
         <div>
           <div className=" text-soft-pink ">{thread?.userName}</div>
