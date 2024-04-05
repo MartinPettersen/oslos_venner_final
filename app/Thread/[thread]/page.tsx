@@ -36,7 +36,8 @@ const page = ({ params }: Props) => {
   }, []);
 
   return (
-    <div className="w-full h-screen  flex items-center justify-center flex-col gap-2">
+    <div className="w-full h-screen flex items-center justify-center flex-col gap-2">
+      <div className="h-[15rem]"></div>
       <ThreadDisplayCard thread={thread} />
       
       <ThreadRepliesContainer thread={thread} />

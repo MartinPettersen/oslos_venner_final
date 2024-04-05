@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Reply } from "@/types/Reply";
+import ReplyDisplayCard from './ReplyDisplayCard';
 
 type Props = {
     replyId: String
@@ -29,7 +30,7 @@ const Reply = ({replyId}: Props) => {
       getReply();
     }, []);
   return (
-    <div className="bg-blue rounded-md p-2 text-soft-pink">{reply?.reply}</div>
+    <ReplyDisplayCard reply={reply} />
   )
 }
 

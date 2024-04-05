@@ -8,7 +8,7 @@ type Props = {
 
 const ThreadRepliesContainer = ({thread}: Props) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 overflow-scroll items-center">
       {thread?.replies.map((reply, index) => (
 
           <Reply replyId={reply} key={index}/>
