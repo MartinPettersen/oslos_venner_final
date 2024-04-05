@@ -11,7 +11,7 @@ const ThreadRepliesContainer = ({thread}: Props) => {
     <div className="flex flex-col gap-2">
       {thread?.replies.map((reply, index) => (
 
-          <Reply reply={reply} key={index}/>
+          <Reply replyId={reply} key={index}/>
       ))}
     </div>
   );
