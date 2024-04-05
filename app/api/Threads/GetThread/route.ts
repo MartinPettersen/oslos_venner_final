@@ -6,6 +6,8 @@ export async function POST(req: any) {
         const body = await req.json()
         const threadId = body.threadId
 
+        console.log(threadId)
+
         if (!threadId) {
             return NextResponse.json({ message: "Mangler Tråd" }, { status: 400 })
         }
