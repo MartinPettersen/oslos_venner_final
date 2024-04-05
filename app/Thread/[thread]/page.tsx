@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import ThreadDisplayCard from "@/app/components/(thread)/ThreadDisplayCard";
+import ThreadRepliesContainer from "@/app/components/(thread)/ThreadRepliesContainer";
 import TimeStamp from "@/app/components/(util)/TimeStamp";
 import { Thread } from "@/types/Thread";
 import React, { useEffect, useState } from "react";
@@ -37,11 +38,8 @@ const page = ({ params }: Props) => {
   return (
     <div className="w-full h-screen  flex items-center justify-center flex-col gap-2">
       <ThreadDisplayCard thread={thread} />
-      <div className="flex flex-col gap-2">
-        <div className="bg-blue rounded-md p-2 text-soft-pink">replies</div>
-        <div className="bg-blue rounded-md p-2 text-soft-pink">replies</div>
-        <div className="bg-blue rounded-md p-2 text-soft-pink">replies</div>
-      </div>
+      
+      <ThreadRepliesContainer thread={thread} />
     </div>
   );
 };
