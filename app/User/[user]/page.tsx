@@ -11,7 +11,7 @@ const page = ({ params }: Props) => {
   const userName = params.user;
 
   return (
-    <div className="flex  flex-col  w-screen h-screen items-center p-4">
+    <div className="flex  flex-col  w-screen h-screen items-center p-4 gap-4">
       <div className="h-1/5"></div>
 
       <div className="bg-green dark:bg-gradient-to-r from-orange to-pink w-[90%] sm:w-[30%] py-10 rounded-xl dark:rounded-none flex flex-col gap-4 items-center justify-center">
@@ -33,7 +33,7 @@ const page = ({ params }: Props) => {
         </div>
       </div>
 
-      <div className="border ">
+      <div className=" ">
         <UserContent userName={userName} contentType={"replies"} />
       </div>
     </div>
