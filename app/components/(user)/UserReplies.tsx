@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import RepliesContainer from '../(util)/RepliesContainer'
+import { Reply } from '@/types/Reply'
 
 type Props = {
     user: String
@@ -8,7 +9,7 @@ type Props = {
 
 const UserReplies = ({user}: Props) => {
     const userName = user;
-    const [replies, setReplies] = useState<String[]>([]);
+    const [replies, setReplies] = useState<Reply[]>([]);
 
     const getUserReplies = async () => {
         console.log("i run");

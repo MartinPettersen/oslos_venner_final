@@ -1,19 +1,19 @@
-'use client'
+"use client";
 import { Thread } from "@/types/Thread";
 import React from "react";
 import ReplyDisplay from "../(reply)/ReplyDisplay";
+import { Reply } from "@/types/Reply";
 
 type Props = {
-    replies: String[]
-}
+  replies: Reply[];
+};
 
-const RepliesContainer = ({replies}: Props) => {
-    console.log(replies)
+const RepliesContainer = ({ replies }: Props) => {
+  console.log(replies);
   return (
     <div className="flex flex-col gap-2 overflow-scroll no-scrollbar overflow-y-auto items-center">
-      {replies!.map((reply: String, index: number) => (
-
-          <ReplyDisplay replyId={reply} key={index}/>
+      {replies.map((reply, index: number) => (
+          <ReplyDisplay replyId={reply.postId} key={index} />
       ))}
     </div>
   );
