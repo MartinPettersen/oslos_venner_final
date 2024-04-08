@@ -1,11 +1,12 @@
 import React from "react";
 import AdminLayout from "../../components/(admin)/AdminLayout";
+import AdminReports from "@/app/components/(admin)/AdminReports";
 
 const page = () => {
   return (
     <div className="flex flex-col w-screen h-screen">
       <AdminLayout>
-        <div className="flex items-center justify-center">page</div>
+        <AdminReports />
       </AdminLayout>
     </div>
   );
