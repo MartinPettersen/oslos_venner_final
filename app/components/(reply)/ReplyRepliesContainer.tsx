@@ -1,6 +1,7 @@
 import { Thread } from "@/types/Thread";
 import React from "react";
-import Reply from "../(reply)/Reply";
+import {Reply} from "@/types/Reply";
+import ReplyDisplay from "./ReplyDisplay";
 
 type Props = {
   parentReply?: Reply;
@@ -11,7 +12,7 @@ const ReplyRepliesContainer = ({ parentReply }: Props) => {
     <div className="flex flex-col gap-2 pl-2 w-full overflow-scroll no-scrollbar overflow-y-auto items-center">
       {parentReply?.children.map((reply, index) => (
         <div key={index} className="flex w-full  pl-2 ">
-          <Reply replyId={reply} />
+          <ReplyDisplay replyId={reply} />
         </div>
       ))}
     </div>

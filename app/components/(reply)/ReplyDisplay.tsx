@@ -7,7 +7,7 @@ type Props = {
     replyId: String
 }
 
-const Reply = ({replyId}: Props) => {
+const ReplyDisplay = ({replyId}: Props) => {
 
     const [reply, setReply] = useState<Reply>();
   
@@ -38,4 +38,4 @@ const Reply = ({replyId}: Props) => {
   )
 }
 
-export default Reply
+export default ReplyDisplay
