@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Reply } from "@/types/Reply";
 import ReplyDisplayCard from './ReplyDisplayCard';
+import ReplyRepliesContainer from './ReplyRepliesContainer';
 
 type Props = {
     replyId: String
@@ -30,7 +31,10 @@ const Reply = ({replyId}: Props) => {
       getReply();
     }, []);
   return (
+    <div className='w-full flex flex-col gap-2 items-center'>
     <ReplyDisplayCard reply={reply} />
+    <ReplyRepliesContainer parentReply={reply} />
+    </div>
   )
 }
 

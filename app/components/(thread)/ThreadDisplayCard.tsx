@@ -8,7 +8,7 @@ type Props = {
 
 const ThreadDisplayCard = ({thread}: Props) => {
   return (
-<div className="flex flex-col w-[90%]  bg-green rounded-md p-2 dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey dark:rounded-none">
+<div className="flex flex-col w-[90%] sm:w-[40%] bg-green rounded-md p-2 dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey dark:rounded-none">
         <div className="flex w-full justify-between">
           <div className="  flex text-xl items-center justify-center">
             {thread?.headline}
