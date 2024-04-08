@@ -1,5 +1,6 @@
 "use client";
 
+import UserContent from "@/app/components/(user)/UserContent";
 import React, { useEffect, useState } from "react";
 
 type Props = {
@@ -22,11 +23,18 @@ const page = ({ params }: Props) => {
           <div className="w-1/6">...</div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-12"> 
-            <div className="bg-brown dark:bg-gradient-to-b from-dark-grey to-black text-soft-pink cursor-pointer dark:text-pink p-2 rounded-full dark:rounded-none flex items-center justify-center sm:font-bold">Kommentarer</div>
-            <div className="bg-brown dark:bg-gradient-to-b from-dark-grey to-black text-soft-pink cursor-pointer dark:text-orange p-2 rounded-full dark:rounded-none flex items-center justify-center sm:font-bold">Tråder</div>
-
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-12">
+          <div className="bg-brown dark:bg-gradient-to-b from-dark-grey to-black text-soft-pink cursor-pointer dark:text-pink p-2 rounded-full dark:rounded-none flex items-center justify-center sm:font-bold">
+            Kommentarer
+          </div>
+          <div className="bg-brown dark:bg-gradient-to-b from-dark-grey to-black text-soft-pink cursor-pointer dark:text-orange p-2 rounded-full dark:rounded-none flex items-center justify-center sm:font-bold">
+            Tråder
+          </div>
         </div>
+      </div>
+
+      <div className="border ">
+        <UserContent userName={userName} contentType={"replies"} />
       </div>
     </div>
   );
