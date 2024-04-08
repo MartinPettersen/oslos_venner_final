@@ -9,7 +9,6 @@ type Props = {
 };
 
 const RepliesContainer = ({ replies }: Props) => {
-  console.log(replies);
   return (
     <div className="flex flex-col gap-2 no-scrollbar overflow-y-auto h-[20rem] items-center">
       {replies.map((reply, index: number) => (

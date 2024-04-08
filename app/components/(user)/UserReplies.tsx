@@ -12,7 +12,6 @@ const UserReplies = ({user}: Props) => {
     const [replies, setReplies] = useState<Reply[]>([]);
 
     const getUserReplies = async () => {
-        console.log("i run");
         const res = await fetch("/api/Replies/GetUserReplies", {
           method: "POST",
           body: JSON.stringify({ userName }),
