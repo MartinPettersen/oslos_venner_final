@@ -1,5 +1,5 @@
 import React from 'react'
-import ReportBar from './(report)/ReportBar'
+import ReportBar from './ReportBar'
 import AdminReportContent from './AdminReportContent'
 
 const AdminReports = () => {

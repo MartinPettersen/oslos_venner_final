@@ -1,6 +1,6 @@
 import React from "react";
 import AdminLayout from "../../components/(admin)/AdminLayout";
-import AdminReports from "@/app/components/(admin)/AdminReports";
+import AdminReports from "@/app/components/(admin)/(report)/AdminReports";
 
 const page = () => {
   return (
