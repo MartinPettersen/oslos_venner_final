@@ -4,6 +4,7 @@ import ReportedReply from "./ReportedReply";
 import ButtonReport from "./(reportUtils)/ButtonReport";
 import ReportPlacard from "./(reportUtils)/ReportPlacard";
 import UserDisplayPlacard from "./(reportUtils)/UserDisplayPlacard";
+import ThreadDisplayPlacard from "./(reportUtils)/ThreadDisplayPlacard";
 
 type Props = {
   report: Report;
@@ -19,7 +20,9 @@ const ReportCard = ({ report }: Props) => {
       {report.subjectType !== "user" ? null : (
         <UserDisplayPlacard subjectId={report.subjectId} />
       )}
-      {report.subjectType !== "thread" ? null : "Se Bruker"}
+      {report.subjectType !== "thread" ? null : 
+        <ThreadDisplayPlacard subjectId={report.subjectId} /> 
+      }
       {report.subjectType !== "post" ? null : (
         <ReportedReply subjectId={report.subjectId} />
       )}
