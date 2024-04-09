@@ -32,7 +32,8 @@ const ForumThreadCard = ({ threadId }: Props) => {
   }, []);
 
   return (
-    <Link href={`../Thread/${thread?.id}`} className="bg-blue dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey text-xs flex justify-between rounded-full dark:rounded-none p-1 ">
+    <Link href={`../Thread/${thread?.id}`} className="bg-blue dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey text-xs flex justify-between rounded-full dark:rounded-none p-1 hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]
+    ">
       <div className="w-3/6 flex items-center">{thread?.headline}</div>
       <div className="w-1/6 sm:w-1/12 flex items-center">{thread?.userName}</div>
       <div className="w-1/6 sm:w-1/12 flex items-center">
