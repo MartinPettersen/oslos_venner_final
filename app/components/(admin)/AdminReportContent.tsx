@@ -1,35 +1,54 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-
+"use client";
+import React, { useEffect, useState } from "react";
+import { Report } from "@/types/Report";
+import ReportedReply from "./(report)/ReportedReply";
 const AdminReportContent = () => {
+  const [reports, setReports] = useState<Report[]>();
 
-    const [reports, setReports] = useState<Report[]>();
+  const status = "clear";
 
-    const status = "clear";
+  const getReports = async () => {
+    const res = await fetch("/api/Reports/GetReports", {
+      method: "POST",
+      body: JSON.stringify({ status }),
+      headers: new Headers({ "content-type": "application/json" }),
+    });
+    if (!res.ok) {
+      const response = await res.json();
+      console.log(response.message);
+    } else {
+      const temp = await res.json();
+      setReports(temp.data);
+      console.log(temp.data);
+    }
+  };
 
-
-    const getReports = async () => {
-        const res = await fetch("/api/Reports/GetReports", {
-          method: "POST",
-          body: JSON.stringify({ status }),
-          headers: new Headers({ "content-type": "application/json" }),
-        });
-        if (!res.ok) {
-          const response = await res.json();
-          console.log(response.message);
-        } else {
-          const temp = await res.json();
-          setReports(temp.data);
-        }
-      };
-    
-      useEffect(() => {
-        getReports();
-      }, []);
+  useEffect(() => {
+    getReports();
+  }, []);
 
   return (
-    <div>reports {reports?.length} s</div>
-  )
-}
+    <div>
+      <div>{reports?.length} rapporter</div>
+      <div className="flex flex-col gap-8">
 
-export default AdminReportContent
+
+        {reports?.map((report, index) => (
+          <div key={index} className="flex flex-col gap-2 text-soft-pink">
+            <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">Rapportert av: {report.userName}</div>
+            <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">Grunn: {report.reason}</div>
+            <ReportedReply subjectId={report.subjectId} />
+            <div className="flex gap-2">
+              <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">Slett</div>
+              <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">Se Tråd</div>
+
+            </div>
+            
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default AdminReportContent;
