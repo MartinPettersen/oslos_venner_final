@@ -52,7 +52,7 @@ const ForumPageContent = ({forumLabel}: Props) => {
         <div className="flex items-center justify-center text-3xl sm:text-6xl text-brown dark:text-orange">
           {forumLabel}
         </div>
-        <div className="flex items-center justify-center text-md text-soft-pink dark:text-dark-grey p-2  bg-green dark:bg-gradient-to-r from-orange to-pink w-26 rounded-full dark:rounded-none cursor-pointer ">
+        <div className="flex items-center justify-center text-md text-soft-pink dark:text-dark-grey p-2  bg-green dark:bg-gradient-to-r from-orange to-pink w-26 rounded-full dark:rounded-none cursor-pointer drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]">
           Nytt Innlegg
         </div>
       </div>
