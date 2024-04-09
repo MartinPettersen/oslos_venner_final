@@ -28,7 +28,7 @@ const AdminReportContent = () => {
   }, []);
 
   return (
-    <div className=" sm:w-[70%]">
+    <div className=" sm:w-[70%] h-[70%] no-scrollbar overflow-y-auto">
       <div>{reports?.length} rapporter</div>
       <div className="flex flex-col gap-8">
 
@@ -40,7 +40,7 @@ const AdminReportContent = () => {
             <ReportedReply subjectId={report.subjectId} />
             <div className="flex gap-2">
               <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">Slett</div>
-              <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">Se Tråd</div>
+              <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">{report.subjectType !== 'user'? "Se Tråd" : "Se Bruker"}</div>
 
             </div>
             
