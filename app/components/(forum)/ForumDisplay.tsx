@@ -35,11 +35,11 @@ const ForumDisplay = ({ forum }: Props) => {
 
   return (
     <div className="w-[80%] flex gap-2 flex-col items-end">
-      <Link href={`../Forum/${forum.label}`} className="bg-blue text-soft-pink dark:text-dark-grey dark:bg-gradient-to-r from-orange to-pink rounded-full dark:rounded-none flex justify-between w-[90%]">
+      <Link href={`../Forum/${forum.label}`} className="bg-blue text-soft-pink dark:text-dark-grey dark:bg-gradient-to-r from-orange to-pink rounded-full dark:rounded-none flex justify-between w-[90%] hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]">
         <div className=" p-2">{forum.label}</div>
         <div className=" p-2">{`# ${forum.threads.length}`}</div>
       </Link>
-      <div className={`bg-green dark:bg-gradient-to-r from-orange to-pink rounded-full dark:rounded-none text-soft-pink dark:text-dark-grey text-xs w-[60%] ${typeof thread === 'undefined' ? 'hidden': ''} `}>
+      <div className={`bg-green dark:bg-gradient-to-r from-orange to-pink rounded-full dark:rounded-none text-soft-pink dark:text-dark-grey text-xs w-[60%] ${typeof thread === 'undefined' ? 'hidden': ''} hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]`}>
         <div className="p-2">
     
 
