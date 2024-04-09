@@ -1,7 +1,8 @@
 import { Report } from "@/types/Report";
 import React from "react";
 import ReportedReply from "./ReportedReply";
-import ButtonReport from "./ButtonReport";
+import ButtonReport from "./(reportUtils)/ButtonReport";
+import ReportPlacard from "./(reportUtils)/ReportPlacard";
 
 type Props = {
   report: Report;
@@ -10,12 +11,10 @@ type Props = {
 const ReportCard = ({ report }: Props) => {
   return (
     <div className="flex flex-col gap-2 text-soft-pink">
-      <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3 sm:w-[30%]">
-        Rapportert av: {report.userName}
-      </div>
-      <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3 sm:w-[30%]">
-        Grunn: {report.reason}
-      </div>
+      <ReportPlacard label={`Rapportert av: ${report.userName}`} />
+
+      <ReportPlacard label={` Grunn: ${report.reason}`} />
+
       <ReportedReply subjectId={report.subjectId} />
       <div className="flex gap-2">
         <div>

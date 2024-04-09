@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonReport from './ButtonReport'
+import ButtonReport from './(reportUtils)/ButtonReport'
 
 type Props = {
   setReportType: React.Dispatch<React.SetStateAction<string>>

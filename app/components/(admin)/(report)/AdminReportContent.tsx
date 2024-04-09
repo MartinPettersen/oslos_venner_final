@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Report } from "@/types/Report";
 import ReportedReply from "./ReportedReply";
-import ButtonReport from "./ButtonReport";
+import ButtonReport from "./(reportUtils)/ButtonReport";
 import ReportCard from "./ReportCard";
 
 type Props = {
