@@ -14,16 +14,15 @@ const ReportCard = ({ report }: Props) => {
     <div className="flex flex-col gap-2 text-soft-pink">
       <ReportPlacard label={`Rapportert av: ${report.userName}`} />
 
-
       <ReportPlacard label={` Grunn: ${report.reason}`} />
 
-      {report.subjectType !== "user" ? <></> : 
-      <UserDisplayPlacard subjectId={report.subjectId} />
-      }
-      {report.subjectType !== "thread" ? <></> : "Se Bruker"}
-      {report.subjectType !== "post" ? <></> : 
-      <ReportedReply subjectId={report.subjectId} />
-      }
+      {report.subjectType !== "user" ? null : (
+        <UserDisplayPlacard subjectId={report.subjectId} />
+      )}
+      {report.subjectType !== "thread" ? null : "Se Bruker"}
+      {report.subjectType !== "post" ? null : (
+        <ReportedReply subjectId={report.subjectId} />
+      )}
       <div className="flex gap-2">
         <div>
           <ButtonReport label="Slett" />

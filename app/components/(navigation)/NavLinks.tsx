@@ -15,26 +15,26 @@ const NavLinks = () => {
   return (
     <>
     {session?.user?.role === "admin"?
-      <Link href="/Admin/Reports" className="relative hover:top-[2px] hover:left-[3px]">
+      <Link href="/Admin/Reports" className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]">
         Admin
       </Link>
       : null}
       <Link
         href="/MyPage"
-        className="relative hover:top-[2px] hover:left-[3px]"
+        className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]"
       >
         Min Side
       </Link>
-      <Link href="/" className="relative hover:top-[2px] hover:left-[3px]">
+      <Link href="/" className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]">
         Forum
       </Link>
 
       {session ? (
-        <Link href="/api/auth/signout?callbackUrl=/" className="relative hover:top-[2px] hover:left-[3px]">
+        <Link href="/api/auth/signout?callbackUrl=/" className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]">
           Logg Ut
         </Link>
       ) : (
-        <Link href="/api/auth/signin" className="relative hover:top-[2px] hover:left-[3px]">
+        <Link href="/api/auth/signin" className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]">
           Login
         </Link>
       )}
