@@ -37,7 +37,7 @@ const AdminReportContent = ({ reportType }: Props) => {
   return (
     <div className=" sm:w-[70%] h-[70%] no-scrollbar overflow-y-auto">
       <div>
-        {reports?.length} rapporter {reportType}
+        {reports?.length} rapporter
       </div>
       <div className="flex flex-col gap-8">
         {reports?.map((report, index) => (

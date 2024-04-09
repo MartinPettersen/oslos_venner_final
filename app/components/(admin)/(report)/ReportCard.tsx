@@ -3,6 +3,7 @@ import React from "react";
 import ReportedReply from "./ReportedReply";
 import ButtonReport from "./(reportUtils)/ButtonReport";
 import ReportPlacard from "./(reportUtils)/ReportPlacard";
+import UserDisplayPlacard from "./(reportUtils)/UserDisplayPlacard";
 
 type Props = {
   report: Report;
@@ -16,7 +17,9 @@ const ReportCard = ({ report }: Props) => {
 
       <ReportPlacard label={` Grunn: ${report.reason}`} />
 
-      {report.subjectType !== "user" ? <></> : "Se Bruker"}
+      {report.subjectType !== "user" ? <></> : 
+      <UserDisplayPlacard subjectId={report.subjectId} />
+      }
       {report.subjectType !== "thread" ? <></> : "Se Bruker"}
       {report.subjectType !== "post" ? <></> : 
       <ReportedReply subjectId={report.subjectId} />
