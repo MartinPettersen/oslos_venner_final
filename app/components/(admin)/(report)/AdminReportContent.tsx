@@ -26,7 +26,6 @@ const AdminReportContent = ({ reportType }: Props) => {
     } else {
       const temp = await res.json();
       setReports(temp.data);
-      console.log(temp.data);
     }
   };
 

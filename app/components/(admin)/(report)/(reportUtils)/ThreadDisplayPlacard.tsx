@@ -14,7 +14,6 @@ const ThreadDisplayPlacard = ({ subjectId }: Props) => {
   const [thread, setThread] = useState<Thread>();
 
   const getThread = async () => {
-    console.log(threadId);
     const res = await fetch("/api/Threads/GetThread", {
       method: "POST",
       body: JSON.stringify({ threadId }),

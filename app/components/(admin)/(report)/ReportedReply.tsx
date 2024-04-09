@@ -24,7 +24,6 @@ const ReportedReply = ({subjectId}: Props) => {
       } else {
         const temp = await res.json();
         setReply(temp.data);
-        console.log(temp.data)
       }
     };
   

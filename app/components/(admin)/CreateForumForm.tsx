@@ -4,8 +4,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 const CreateForumForm = () => {
-
-    const { data: session }: any = useSession();
+  const { data: session }: any = useSession();
 
   const router = useRouter();
   const [formData, setFormData] = useState({
