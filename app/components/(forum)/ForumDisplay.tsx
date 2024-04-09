@@ -39,7 +39,7 @@ const ForumDisplay = ({ forum }: Props) => {
         <div className=" p-2">{forum.label}</div>
         <div className=" p-2">{`# ${forum.threads.length}`}</div>
       </Link>
-      <div className={`bg-green dark:bg-gradient-to-r from-orange to-pink rounded-full dark:rounded-none text-soft-pink dark:text-dark-grey text-xs w-[60%] ${typeof thread === 'undefined' ? 'hidden': ''} hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]`}>
+      <div className={`bg-green dark:bg-gradient-to-r from-orange to-pink rounded-full dark:rounded-none text-soft-pink dark:text-dark-grey text-xs w-[60%] ${typeof thread === 'undefined' ? 'hidden': ''} cursor-pointer hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]`}>
         <div className="p-2">
     
 
