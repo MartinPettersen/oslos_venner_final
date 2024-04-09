@@ -32,13 +32,13 @@ const ForumThreadCard = ({ threadId }: Props) => {
   }, []);
 
   return (
-    <Link href={`../Thread/${thread?.id}`} className="bg-blue dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey text-xs flex justify-between rounded-full dark:rounded-none p-1">
-      <div className="w-3/6">{thread?.headline}</div>
-      <div className="w-1/6 sm:w-1/12">{thread?.userName}</div>
-      <div className="w-1/6 sm:w-1/12">
+    <Link href={`../Thread/${thread?.id}`} className="bg-blue dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey text-xs flex justify-between rounded-full dark:rounded-none p-1 ">
+      <div className="w-3/6 flex items-center">{thread?.headline}</div>
+      <div className="w-1/6 sm:w-1/12 flex items-center">{thread?.userName}</div>
+      <div className="w-1/6 sm:w-1/12 flex items-center">
         <TimeStamp createdAt={thread?.createdAt} />
       </div>
-      <div className="w-1/6 sm:w-1/12 flex justify-end"># {thread?.replies.length}</div>
+      <div className="w-1/6 sm:w-1/12 justify-end flex items-center"># {thread?.replies.length}</div>
     </Link>
   );
 };
