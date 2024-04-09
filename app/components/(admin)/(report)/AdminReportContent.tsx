@@ -6,10 +6,10 @@ import ButtonReport from "./(reportUtils)/ButtonReport";
 import ReportCard from "./ReportCard";
 
 type Props = {
-  reportType: String,
-}
+  reportType: String;
+};
 
-const AdminReportContent = ({reportType}: Props) => {
+const AdminReportContent = ({ reportType }: Props) => {
   const [reports, setReports] = useState<Report[]>();
 
   const status = "clear";
@@ -36,11 +36,16 @@ const AdminReportContent = ({reportType}: Props) => {
 
   return (
     <div className=" sm:w-[70%] h-[70%] no-scrollbar overflow-y-auto">
-      <div>{reports?.length} rapporter {reportType}</div>
+      <div>
+        {reports?.length} rapporter {reportType}
+      </div>
       <div className="flex flex-col gap-8">
         {reports?.map((report, index) => (
-          
-          <ReportCard report={report} key={index}/>
+          <div key={index}>
+            {report.subjectType == reportType ? (
+              <ReportCard report={report} key={index} />
+            ) : null}
+          </div>
         ))}
       </div>
     </div>
