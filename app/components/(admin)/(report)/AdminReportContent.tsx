@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Report } from "@/types/Report";
 import ReportedReply from "./ReportedReply";
+import ButtonReport from "./ButtonReport";
 
 type Props = {
   reportType: String,
@@ -46,11 +47,14 @@ const AdminReportContent = ({reportType}: Props) => {
             </div>
             <ReportedReply subjectId={report.subjectId} />
             <div className="flex gap-2">
-              <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">
-                Slett
+              <div >
+                
+                <ButtonReport label="Slett" />
               </div>
-              <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">
-                {report.subjectType !== "user" ? "Se Tråd" : "Se Bruker"}
+              <div >
+                <ButtonReport label={report.subjectType !== "user" ? "Se Tråd" : "Se Bruker"} />
+
+                
               </div>
             </div>
           </div>
