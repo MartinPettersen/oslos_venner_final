@@ -18,7 +18,7 @@ const ReplyDisplayCard = ({reply}: Props) => {
         {reply?.reply}
         </div>
         <div className='flex flex-row justify-between'>
-            <div className='flex items-center font-bold justify-center cursor-pointer'>svar</div>
+            <div className='flex items-center font-bold justify-center cursor-pointer hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]'>svar</div>
             <div><TimeStamp createdAt={reply?.createdAt} /></div>
         </div>
     </div>

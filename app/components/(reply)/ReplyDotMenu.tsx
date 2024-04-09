@@ -16,7 +16,7 @@ const ReplyDotMenu = ({reply} : Props) => {
       {!toggleMenu ? (
         <div
           onClick={() => setToggleMenu(true)}
-          className="font-bold  flex items-start justify-start cursor-pointer"
+          className="font-bold  flex items-start justify-start cursor-pointer "
         >{`\u00B7\u00B7\u00B7`}</div>
       ) : (
         <>
