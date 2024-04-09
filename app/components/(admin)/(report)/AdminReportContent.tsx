@@ -2,7 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { Report } from "@/types/Report";
 import ReportedReply from "./ReportedReply";
-const AdminReportContent = () => {
+
+type Props = {
+  reportType: String,
+}
+
+const AdminReportContent = ({reportType}: Props) => {
   const [reports, setReports] = useState<Report[]>();
 
   const status = "clear";
@@ -29,21 +34,25 @@ const AdminReportContent = () => {
 
   return (
     <div className=" sm:w-[70%] h-[70%] no-scrollbar overflow-y-auto">
-      <div>{reports?.length} rapporter</div>
+      <div>{reports?.length} rapporter {reportType}</div>
       <div className="flex flex-col gap-8">
-
-
         {reports?.map((report, index) => (
           <div key={index} className="flex flex-col gap-2 text-soft-pink">
-            <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3 sm:w-[30%]">Rapportert av: {report.userName}</div>
-            <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3 sm:w-[30%]">Grunn: {report.reason}</div>
+            <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3 sm:w-[30%]">
+              Rapportert av: {report.userName}
+            </div>
+            <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3 sm:w-[30%]">
+              Grunn: {report.reason}
+            </div>
             <ReportedReply subjectId={report.subjectId} />
             <div className="flex gap-2">
-              <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">Slett</div>
-              <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">{report.subjectType !== 'user'? "Se Tråd" : "Se Bruker"}</div>
-
+              <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">
+                Slett
+              </div>
+              <div className="bg-green rounded-xl dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:rounded-none dark:text-dark-grey p-1 px-3">
+                {report.subjectType !== "user" ? "Se Tråd" : "Se Bruker"}
+              </div>
             </div>
-            
           </div>
         ))}
       </div>
