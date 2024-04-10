@@ -48,7 +48,7 @@ const NewThread = ({ newThread, setNewThread, forumLabel }: Props) => {
     e.preventDefault();
     setErrorMessage("");
 
-    const res = await fetch("/api/Threads", {
+    const res = await fetch("/api/Threads/CreateThread", {
       method: "POST",
       body: JSON.stringify({ form, forumLabel, id }),
       headers: new Headers({ "content-type": "application/json" }),
@@ -73,14 +73,39 @@ const NewThread = ({ newThread, setNewThread, forumLabel }: Props) => {
           ></div>
           <div className="absolute top-0 left-0 w-screen h-screen flex items-center justify-center">
             <div className="absolute bg-green dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none z-[100] w-[90%] sm:w-[30%]">
-              <form className="flex flex-col items-center py-6">
-                <label>Overskrift</label>
-                <>dette er skrevet</>
-                <label>Innhold</label>
-                <>dette er Textareat</>
-                <div className="bg-light-brown dark:bg-gradient-to-r p-2 from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px] cursor-pointer">
-                  Opprett
-                </div>
+              <form
+                onSubmit={handleSubmit}
+                method="post"
+                className="flex flex-col gap-4 items-center py-6"
+              >
+                <div className="flex flex-col">
+                <label>tittel</label>
+                <input
+                  id="headline"
+                  type="text"
+                  name="headline"
+                  onChange={handleChange}
+                  required={true}
+                  value={form.headline}
+                  className="rounded-full outline-none p-2 text-dark-grey dark:rounded-none bg-soft-pink dark:bg-grey"
+                  />
+                  </div>
+                  <div className="flex flex-col">
+                <label>Innhold
+                </label>
+                <textarea
+                  id="content"
+                  
+                  name="content"
+                  onChange={handleChange}
+                  required={true}
+                  value={form.content}
+                  className="rounded-full p-2 outline-none text-dark-grey dark:rounded-none bg-soft-pink dark:bg-grey"
+                  >
+                </textarea>
+                  </div>
+                <input  type="submit" value="Opprett Innlegg" className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]
+ bg-light-brown dark:bg-gradient-to-r p-2 from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none " />
               </form>
             </div>
           </div>
