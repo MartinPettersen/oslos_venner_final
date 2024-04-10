@@ -2,6 +2,7 @@
 import { Forum } from '@/types/Forum';
 import React, { useEffect, useState } from 'react'
 import ForumThreadCard from './ForumThreadCard';
+import NewThread from './NewThread';
 
 type Props = {
     forumLabel: string
@@ -13,6 +14,8 @@ const ForumPageContent = ({forumLabel}: Props) => {
     const [forum, setForum] = useState<Forum>();
     const [winReady, setwinReady] = useState(false);
   
+    const [newThread, setNewThread] = useState(false);
+
     const getForum = async () => {
       const res = await fetch("/api/Forums/GetForum", {
         method: "POST",
@@ -52,9 +55,10 @@ const ForumPageContent = ({forumLabel}: Props) => {
         <div className="flex items-center justify-center text-3xl sm:text-6xl text-brown dark:text-orange">
           {forumLabel}
         </div>
-        <div className="flex items-center justify-center text-md text-soft-pink dark:text-dark-grey p-2  bg-green dark:bg-gradient-to-r from-orange to-pink w-26 rounded-full dark:rounded-none cursor-pointer drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]">
+        <div onClick={() => setNewThread(true)} className="flex items-center justify-center text-md text-soft-pink dark:text-dark-grey p-2  bg-green dark:bg-gradient-to-r from-orange to-pink w-26 rounded-full dark:rounded-none cursor-pointer drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]">
           Nytt Innlegg
         </div>
+        <NewThread newThread={newThread} setNewThread={setNewThread} forumLabel={forumLabel}/>
       </div>
     </div>
   )
