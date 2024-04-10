@@ -69,7 +69,8 @@ const CreateForumForm = () => {
           <input
             type="submit"
             value="Opprett Forum"
-            className="bg-brown dark:dark:bg-gradient-to-r from-dark-grey to-black text-soft-pink dark:text-pink rounded-full dark:rounded-none w-[80%] dark:w-[90%] dark:sm:w-[54%] dark:h-[30px]"
+            className="bg-brown dark:dark:bg-gradient-to-r from-dark-grey to-black text-soft-pink dark:text-pink rounded-full dark:rounded-none w-[80%] dark:w-[90%] dark:sm:w-[54%] dark:h-[30px] drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]
+            "
           />
         </div>
       </form>

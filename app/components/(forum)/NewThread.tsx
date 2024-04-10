@@ -79,33 +79,34 @@ const NewThread = ({ newThread, setNewThread, forumLabel }: Props) => {
                 className="flex flex-col gap-4 items-center py-6"
               >
                 <div className="flex flex-col">
-                <label>tittel</label>
-                <input
-                  id="headline"
-                  type="text"
-                  name="headline"
-                  onChange={handleChange}
-                  required={true}
-                  value={form.headline}
-                  className="rounded-full outline-none p-2 text-dark-grey dark:rounded-none bg-soft-pink dark:bg-grey"
+                  <label>tittel</label>
+                  <input
+                    id="headline"
+                    type="text"
+                    name="headline"
+                    onChange={handleChange}
+                    required={true}
+                    value={form.headline}
+                    className="rounded-full outline-none p-2 text-dark-grey dark:rounded-none bg-soft-pink dark:bg-grey"
                   />
-                  </div>
-                  <div className="flex flex-col">
-                <label>Innhold
-                </label>
-                <textarea
-                  id="content"
-                  
-                  name="content"
-                  onChange={handleChange}
-                  required={true}
-                  value={form.content}
-                  className="rounded-full p-2 outline-none text-dark-grey dark:rounded-none bg-soft-pink dark:bg-grey"
-                  >
-                </textarea>
-                  </div>
-                <input  type="submit" value="Opprett Innlegg" className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]
- bg-light-brown dark:bg-gradient-to-r p-2 from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none " />
+                </div>
+                <div className="flex flex-col">
+                  <label>Innhold</label>
+                  <textarea
+                    id="content"
+                    name="content"
+                    onChange={handleChange}
+                    required={true}
+                    value={form.content}
+                    className="rounded-full p-2 outline-none text-dark-grey dark:rounded-none bg-soft-pink dark:bg-grey"
+                  ></textarea>
+                </div>
+                <input
+                  type="submit"
+                  value="Opprett Innlegg"
+                  className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]
+ bg-light-brown dark:bg-gradient-to-r p-2 from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none "
+                />
               </form>
             </div>
           </div>
