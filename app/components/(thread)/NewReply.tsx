@@ -5,17 +5,19 @@ import { useRouter } from "next/navigation";
 import { redirect } from "next/navigation";
 
 type Props = {
-  parentId?: String;
-  parentType?: String;
+  parent: String;
+  parentType: String;
   newReply: boolean;
   setNewReply: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const NewReply = ({ parentId, parentType, newReply, setNewReply }: Props) => {
+const NewReply = ({ parent, parentType, newReply, setNewReply }: Props) => {
   const router = useRouter();
 
   const postId = uuidv4();
+  const parentId = parent;
 
+  
   const { data: session }: any = useSession({
     required: true,
     onUnauthenticated() {
@@ -47,7 +49,7 @@ const NewReply = ({ parentId, parentType, newReply, setNewReply }: Props) => {
     e.preventDefault();
     setErrorMessage("");
 
-    const res = await fetch("/api/Posts", {
+    const res = await fetch("/api/Replies/NewReply", {
       method: "POST",
       body: JSON.stringify({ form, parentType }),
       headers: new Headers({ "content-type": "application/json" }),

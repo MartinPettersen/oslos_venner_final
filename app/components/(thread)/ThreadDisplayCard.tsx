@@ -27,7 +27,10 @@ const ThreadDisplayCard = ({thread}: Props) => {
           <div onClick={() => setNewReply(true)} className="  flex items-center font-bold justify-center cursor-pointer hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]">
             Svar
           </div>
-          <NewReply parentId={thread?.id} parentType={"thread"} newReply={newReply} setNewReply={setNewReply}/>
+          {thread ?
+          <NewReply parent={thread!.id} parentType={"thread"} newReply={newReply} setNewReply={setNewReply}/>
+            : null
+        }
           <div className="  flex gap-3 items-center justify-center">
             <div className=" flex items-center justify-center">
               {thread?.replies.length}
