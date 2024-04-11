@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { redirect } from "next/navigation";
 
 type Props = {
@@ -13,11 +13,10 @@ type Props = {
 
 const NewReply = ({ parent, parentType, newReply, setNewReply }: Props) => {
   const router = useRouter();
-
+  const pathName = usePathname();
   const postId = uuidv4();
   const parentId = parent;
 
-  
   const { data: session }: any = useSession({
     required: true,
     onUnauthenticated() {
@@ -60,7 +59,8 @@ const NewReply = ({ parent, parentType, newReply, setNewReply }: Props) => {
       setErrorMessage(response.message);
     } else {
       router.refresh();
-      router.push("/");
+      router.push(pathName);
+      //      router.replace(pathName);
     }
   };
 
@@ -93,7 +93,7 @@ const NewReply = ({ parent, parentType, newReply, setNewReply }: Props) => {
                 <input
                   type="submit"
                   value="Svar"
-                  className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px] bg-light-brown dark:bg-gradient-to-r p-2 from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none "
+                  className="drop-shadow-xl cursor-pointer hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px] bg-light-brown dark:bg-gradient-to-r p-2 from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none "
                 />
               </form>
             </div>
