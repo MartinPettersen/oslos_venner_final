@@ -62,7 +62,7 @@ const NewThread = ({ newThread, setNewThread, forumLabel }: Props) => {
       setErrorMessage(response.message);
     } else {
       router.refresh();
-      router.push("/");
+      router.push(`/Thread/${form.id}`);
     }
   };
 
