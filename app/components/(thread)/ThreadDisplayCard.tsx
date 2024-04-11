@@ -1,13 +1,17 @@
 import { Thread } from '@/types/Thread'
-import React from 'react'
+import React, { useState } from 'react'
 import TimeStamp from '../(util)/TimeStamp'
 import ThreadDotMenu from './ThreadDotMenu'
+import NewReply from './NewReply'
 
 type Props = {
     thread?: Thread
 }
 
 const ThreadDisplayCard = ({thread}: Props) => {
+
+  const [newReply, setNewReply] = useState(false);
+
   return (
 <div className="flex  flex-col w-[90%] sm:w-[40%] bg-green rounded-md p-2 dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey dark:rounded-none">
         <div className="flex w-full justify-between">
@@ -20,9 +24,10 @@ const ThreadDisplayCard = ({thread}: Props) => {
           <div className="  ">{thread?.userName}</div>
         </div>
         <div className="flex flex-row justify-between ">
-          <div className="  flex items-center font-bold justify-center cursor-pointer hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]">
+          <div onClick={() => setNewReply(true)} className="  flex items-center font-bold justify-center cursor-pointer hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]">
             Svar
           </div>
+          <NewReply parentId={thread?.id} parentType={"thread"} newReply={newReply} setNewReply={setNewReply}/>
           <div className="  flex gap-3 items-center justify-center">
             <div className=" flex items-center justify-center">
               {thread?.replies.length}

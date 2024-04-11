@@ -1,41 +1,37 @@
-"use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { redirect } from "next/navigation";
 
 type Props = {
-  newThread: boolean;
-  setNewThread: React.Dispatch<React.SetStateAction<boolean>>;
-  forumLabel: String;
+  parentId?: String;
+  parentType?: String;
+  newReply: boolean;
+  setNewReply: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const NewThread = ({ newThread, setNewThread, forumLabel }: Props) => {
-  console.log(newThread);
-
+const NewReply = ({ parentId, parentType, newReply, setNewReply }: Props) => {
   const router = useRouter();
 
-  const id = uuidv4();
+  const postId = uuidv4();
 
   const { data: session }: any = useSession({
     required: true,
     onUnauthenticated() {
-      if (newThread) {
-
-         redirect("/api/auth/signin?callbackUrl=/Bruker");
+      if (newReply) {
+        redirect("/api/auth/signin?callbackUrl=/Bruker");
       }
     },
   });
 
   const [form, setForm] = useState({
-    id: id,
-    headline: "",
+    postId: postId,
+    parentId: parentId,
+    reply: "",
     userName: session?.user?.name,
-    content: "",
-    forumLabel: forumLabel,
-    replies: [],
   });
+
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e: any) => {
@@ -51,9 +47,9 @@ const NewThread = ({ newThread, setNewThread, forumLabel }: Props) => {
     e.preventDefault();
     setErrorMessage("");
 
-    const res = await fetch("/api/Threads/CreateThread", {
+    const res = await fetch("/api/Posts", {
       method: "POST",
-      body: JSON.stringify({ form, forumLabel, id }),
+      body: JSON.stringify({ form, parentType }),
       headers: new Headers({ "content-type": "application/json" }),
     });
 
@@ -68,10 +64,10 @@ const NewThread = ({ newThread, setNewThread, forumLabel }: Props) => {
 
   return (
     <div>
-      {newThread ? (
+      {newReply ? (
         <>
           <div
-            onClick={() => setNewThread(!newThread)}
+            onClick={() => setNewReply(!newReply)}
             className="absolute z-[10] top-0 left-0 w-screen h-screen flex items-center justify-center"
           ></div>
           <div className="absolute top-0 left-0 w-screen h-screen flex items-center justify-center">
@@ -82,33 +78,20 @@ const NewThread = ({ newThread, setNewThread, forumLabel }: Props) => {
                 className="flex flex-col gap-4 items-center py-6"
               >
                 <div className="flex flex-col">
-                  <label>tittel</label>
-                  <input
-                    id="headline"
-                    type="text"
-                    name="headline"
-                    onChange={handleChange}
-                    required={true}
-                    value={form.headline}
-                    className="rounded-full outline-none p-2 text-dark-grey dark:rounded-none bg-soft-pink dark:bg-grey"
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <label>Innhold</label>
+                  <label>Svar</label>
                   <textarea
-                    id="content"
-                    name="content"
+                    id="reply"
+                    name="reply"
                     onChange={handleChange}
                     required={true}
-                    value={form.content}
+                    value={form.reply}
                     className="rounded-full p-2 outline-none text-dark-grey dark:rounded-none bg-soft-pink dark:bg-grey"
                   ></textarea>
                 </div>
                 <input
                   type="submit"
-                  value="Opprett Innlegg"
-                  className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]
- bg-light-brown dark:bg-gradient-to-r p-2 from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none "
+                  value="Svar"
+                  className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px] bg-light-brown dark:bg-gradient-to-r p-2 from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none "
                 />
               </form>
             </div>
@@ -119,4 +102,4 @@ const NewThread = ({ newThread, setNewThread, forumLabel }: Props) => {
   );
 };
 
-export default NewThread;
+export default NewReply;
