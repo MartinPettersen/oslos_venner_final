@@ -6,6 +6,7 @@ import ReplyDotMenu from "./ReplyDotMenu";
 import NewReply from "../(thread)/NewReply";
 import Link from "next/link";
 import DotMenu from "../(util)/DotMenu";
+import { useSession } from "next-auth/react";
 
 type Props = {
   reply?: Reply;
@@ -13,6 +14,16 @@ type Props = {
 
 const ReplyDisplayCard = ({ reply }: Props) => {
   const [newReply, setNewReply] = useState(false);
+
+  const { data: session }: any = useSession();
+
+  const creatorMenu = () => {
+    if (reply?.userName === session?.user.name) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   return (
     <div className="bg-blue w-[80%] text-xs rounded-md p-2 dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey dark:rounded-none">
@@ -23,7 +34,7 @@ const ReplyDisplayCard = ({ reply }: Props) => {
         >
           {reply?.userName}
         </Link>
-        <DotMenu subjectId={reply?.postId} subjectType={"post"} />
+        <DotMenu subjectId={reply?.postId} subjectType={"post"} creator={creatorMenu()}/>
       </div>
       <div>{reply?.reply}</div>
       <div className="flex flex-row justify-between">
