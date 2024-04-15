@@ -1,5 +1,6 @@
 'use client'
 import { useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from "uuid";
 
@@ -16,7 +17,7 @@ const ReportForm = ({subjectId, subjectType, setToggleWindow}: Props) => {
     const { data: session }: any = useSession({
         required: true,
         onUnauthenticated() {
-          // redirect("/api/auth/signin?callbackUrl=/Bruker");
+          redirect("/api/auth/signin?callbackUrl=/Bruker");
     
         },
       });
