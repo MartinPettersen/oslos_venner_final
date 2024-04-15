@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 
 type Props = {
@@ -8,20 +8,19 @@ type Props = {
 };
 
 const PopupWindow = ({ children, toggleWindow, setToggleWindow }: Props) => {
-    console.log(toggleWindow)
+  console.log(toggleWindow);
   return (
-    <div>
+    < >
       {toggleWindow ? (
-        <>
+        <div className="fixed top-0 left-0  w-screen h-screen flex items-center justify-center">
+          {children}
           <div
             onClick={() => setToggleWindow(!toggleWindow)}
-            className="fixed z-[10]   w-screen h-screen flex top-0 left-0 items-center justify-center"
-          >
-            {children}
-          </div>
-        </>
+            className="absolute [z-10]  w-screen h-screen flex top-0 left-0 items-center justify-center"
+          ></div>
+        </div>
       ) : null}
-    </div>
+    </>
   );
 };
 
