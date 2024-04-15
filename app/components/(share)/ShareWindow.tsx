@@ -8,12 +8,28 @@ type Props = {
 };
 
 const ShareWindow = ({ subjectId, subjectType }: Props) => {
-  return (
-    <div className="absolute z-[100] bg-green dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none  w-[90%]  sm:w-[30%] flex flex-col gap-2">
-      <div>{window.location.hostname}</div>
-      <div>{window.location.href}</div>
+  const getUrl = () => {
+    if (subjectType === "thread") {
+      return window.location.href;
+    } else if (subjectType === "post") {
+      return `${window.location.hostname}/Reply/${subjectId}`;
+    } else if (subjectType === "user") {
+      return `${window.location.hostname}/User/${subjectId}`;
+    }
+  };
 
-      <DocumentDuplicateIcon className="h-8 w-[50px] font-bold rounded-md sm:hidden text-soft-pink dark:text-dark-grey" />
+  const handleCopy = async () => {
+    const text = getUrl();
+    return await navigator.clipboard.writeText(text!);
+  };
+
+  return (
+    <div className="absolute z-[100] bg-green dark:bg-gradient-to-r from-orange to-pink h-[20%] text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none  w-[90%]  sm:w-[30%] flex flex-col sm:flex-row items-center justify-center gap-2">
+      <div className="border border-soft-pink dark:border-dark-grey">{getUrl()}</div>
+
+      <div onClick={() => handleCopy()}>
+        <DocumentDuplicateIcon className="h-8 w-[50px] font-bold rounded-md text-soft-pink dark:text-dark-grey cursor-pointer" />
+      </div>
     </div>
   );
 };
