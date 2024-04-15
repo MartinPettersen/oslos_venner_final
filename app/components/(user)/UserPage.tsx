@@ -25,13 +25,15 @@ const UserPage = ({ userName }: Props) => {
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-12">
           <div
             onClick={() => setContentType("replies")}
-            className="bg-brown dark:bg-gradient-to-b from-dark-grey to-black text-soft-pink cursor-pointer dark:text-pink p-2 rounded-full dark:rounded-none flex items-center justify-center sm:font-bold"
+            className="bg-brown dark:bg-gradient-to-b from-dark-grey to-black text-soft-pink cursor-pointer dark:text-pink p-2 rounded-full dark:rounded-none flex items-center justify-center sm:font-bold drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]
+            "
           >
             Kommentarer
           </div>
           <div
             onClick={() => setContentType("threads")}
-            className="bg-brown dark:bg-gradient-to-b from-dark-grey to-black text-soft-pink cursor-pointer dark:text-orange p-2 rounded-full dark:rounded-none flex items-center justify-center sm:font-bold"
+            className="bg-brown dark:bg-gradient-to-b from-dark-grey to-black text-soft-pink cursor-pointer dark:text-orange p-2 rounded-full dark:rounded-none flex items-center justify-center sm:font-bold drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]
+            "
           >
             Tråder
           </div>
