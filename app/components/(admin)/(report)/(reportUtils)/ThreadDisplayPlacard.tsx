@@ -2,6 +2,7 @@ import ThreadDisplayCard from "@/app/components/(thread)/ThreadDisplayCard";
 import ThreadDotMenu from "@/app/components/(thread)/ThreadDotMenu";
 import TimeStamp from "@/app/components/(util)/TimeStamp";
 import { Thread } from "@/types/Thread";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 type Props = {
@@ -41,7 +42,10 @@ const ThreadDisplayPlacard = ({ subjectId }: Props) => {
         <ThreadDotMenu subjectType={"thread"} subjectId={thread?.id}/>
       </div>
       <div>
-        <div className="  ">{thread?.userName}</div>
+      <Link href={`/User/${thread?.userName}`} className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]">
+        {thread?.userName}
+      </Link>
+        <div className="  "></div>
       </div>
       <div className="flex flex-row justify-between ">
         <div className="  flex items-center font-bold justify-center cursor-pointer">
