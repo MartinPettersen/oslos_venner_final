@@ -10,7 +10,7 @@ type Props = {
 const ShareWindow = ({ subjectId, subjectType }: Props) => {
   const getUrl = () => {
     if (subjectType === "thread") {
-      return window.location.href;
+        return `${window.location.hostname}/Thread/${subjectId}`;
     } else if (subjectType === "post") {
       return `${window.location.hostname}/Reply/${subjectId}`;
     } else if (subjectType === "user") {
