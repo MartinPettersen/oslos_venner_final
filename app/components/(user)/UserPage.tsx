@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import UserContent from "@/app/components/(user)/UserContent";
+import DotMenu from "../(util)/DotMenu";
 
 type Props = {
   userName: String;
@@ -19,7 +20,9 @@ const UserPage = ({ userName }: Props) => {
           <div className="text-xl sm:text-3xl w-4/6 flex justify-center items-center text-soft-pink dark:text-dark-grey">
             {userName.replace("%20", " ")}
           </div>
-          <div className="w-1/6">...</div>
+          <div className="w-1/6 text-3xl font-bold">
+          <DotMenu subjectType={"user"} subjectId={userName} />
+          </div>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-12">
