@@ -38,7 +38,7 @@ const ThreadDisplayPlacard = ({ subjectId }: Props) => {
         <div className="  flex text-xl items-center justify-center">
           {thread?.headline}
         </div>
-        <ThreadDotMenu />
+        <ThreadDotMenu subjectType={"thread"} subjectId={thread?.id}/>
       </div>
       <div>
         <div className="  ">{thread?.userName}</div>
