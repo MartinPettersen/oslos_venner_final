@@ -4,6 +4,7 @@ import TimeStamp from "../(util)/TimeStamp";
 import ThreadDotMenu from "./ThreadDotMenu";
 import NewReply from "./NewReply";
 import Link from "next/link";
+import DotMenu from "../(util)/DotMenu";
 
 type Props = {
   thread?: Thread;
@@ -18,7 +19,7 @@ const ThreadDisplayCard = ({ thread }: Props) => {
         <div className="  flex text-xl items-center justify-center">
           {thread?.headline}
         </div>
-        <ThreadDotMenu subjectType={"thread"} subjectId={thread?.id} />
+        <DotMenu subjectType={"thread"} subjectId={thread?.id} />
       </div>
       <div>
         <Link
