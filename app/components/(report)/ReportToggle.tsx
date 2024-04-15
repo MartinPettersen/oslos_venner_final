@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import PopupWindow from "../(util)/PopupWindow";
-import ReportForm from "../(report)/ReportForm";
+import ReportForm from "./ReportForm";
 
 type Props = {
     subjectType: String,

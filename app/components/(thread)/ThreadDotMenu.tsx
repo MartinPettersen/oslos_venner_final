@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import ReportToggle from "./ReportToggle";
+import ReportToggle from "../(report)/ReportToggle";
 
 type Props = {
   subjectType: String,
