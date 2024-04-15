@@ -5,6 +5,7 @@ import TimeStamp from "../(util)/TimeStamp";
 import ReplyDotMenu from "./ReplyDotMenu";
 import NewReply from "../(thread)/NewReply";
 import Link from "next/link";
+import DotMenu from "../(util)/DotMenu";
 
 type Props = {
   reply?: Reply;
@@ -22,7 +23,7 @@ const ReplyDisplayCard = ({ reply }: Props) => {
         >
           {reply?.userName}
         </Link>
-        <ReplyDotMenu subjectId={reply?.postId} subjectType={"post"} />
+        <DotMenu subjectId={reply?.postId} subjectType={"post"} />
       </div>
       <div>{reply?.reply}</div>
       <div className="flex flex-row justify-between">
