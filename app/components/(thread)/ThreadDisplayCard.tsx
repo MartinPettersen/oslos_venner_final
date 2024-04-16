@@ -18,11 +18,11 @@ const ThreadDisplayCard = ({ thread }: Props) => {
 
   const creatorMenu = () => {
     if (thread?.userName === session?.user.name) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
-  }
+  };
 
   return (
     <div className="flex  flex-col w-[90%] sm:w-[40%] bg-green rounded-md p-2 dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey dark:rounded-none">
@@ -30,7 +30,11 @@ const ThreadDisplayCard = ({ thread }: Props) => {
         <div className="  flex text-xl items-center justify-center">
           {thread?.headline}
         </div>
-        <DotMenu subjectType={"thread"} subjectId={thread?.id} creator={creatorMenu()} />
+        <DotMenu
+          subjectType={"thread"}
+          subjectId={thread?.id}
+          creator={creatorMenu()}
+        />
         {}
       </div>
       <div>
@@ -38,8 +42,11 @@ const ThreadDisplayCard = ({ thread }: Props) => {
           href={`/User/${thread?.userName}`}
           className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]"
         >
-          {thread?.userName}
+          {thread?.userName}:
         </Link>
+      </div>
+      <div>
+        {thread?.content}
       </div>
       <div className="flex flex-row justify-between ">
         <div
