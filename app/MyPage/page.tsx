@@ -6,6 +6,7 @@ import MyInfo from "../components/(mypage)/MyInfo";
 
 import { useSession } from 'next-auth/react'
 import { redirect } from "next/navigation";
+import DeleteButton from "../components/(util)/DeleteButton";
 
 const page = () => {
 
@@ -23,6 +24,7 @@ const page = () => {
       <div className="w-[90%] h-[75%] p-4  items-center justify-center flex flex-col gap-[30px] sm:gap-[60px]">
         <MyInfo user={session?.user!} />
         <DeleteAccount />
+        <DeleteButton subjectType={"user"} subjectId={session?.user!.name!} label={"Slett Bruker"} />
       </div>
     </div>
   );
