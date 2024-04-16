@@ -3,7 +3,6 @@ import Thread from '@/app/(models)/Thread';
 import Post from "@/app/(models)/Post";
 import Forum from '@/app/(models)/Forum';
 import Report from "@/app/(models)/Report";
-// import Thread from "@/app/(models)/Thread";
 
 import { Thread as ThreadT } from "@/types/Thread";
 import { Forum as ForumT } from "@/types/Forum";
@@ -25,7 +24,6 @@ export async function POST(req: any) {
         })
 
         const existingForum = await Forum.findOne({ label: thread.forumLabel }).lean().exec() as any as ForumT;
-
 
         await Report.findOneAndDelete({ subjectId: thread.id }).lean().exec();
 

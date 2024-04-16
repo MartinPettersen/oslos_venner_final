@@ -49,7 +49,7 @@ const CreateUserForm = () => {
     setErrorMessage("");
 
     if (passwordMatch()) {
-      const res = await fetch("/api/Users", {
+      const res = await fetch("/api/Users/CreateUser", {
         method: "POST",
         body: JSON.stringify({ formData }),
         headers: new Headers({ "content-type": "application/json" }),

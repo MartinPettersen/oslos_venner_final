@@ -75,9 +75,23 @@ const DeleteButton = ({ subjectType, subjectId, label }: Props) => {
     }
   };
 
+  const handleDeleteUser = async () => {
+    const userName = subjectId
+    const res = await fetch("/api/Users/DeleteUser", {
+      method: "POST",
+      body: JSON.stringify({ userName }),
+      headers: new Headers({ "content-type": "application/json" }),
+    });
+
+    if (!res.ok) {
+      const response = await res.json();
+    } else {
+      router.refresh();
+      router.push("/");
+    }
+  };
 
   const handleDeleteReply = async () => {
-    console.log("jeg blir kalt")
     const replyId = subjectId
     const parentId = reply?.parentId
     const res = await fetch("/api/Replies/DeleteReply", {
@@ -94,9 +108,6 @@ const DeleteButton = ({ subjectType, subjectId, label }: Props) => {
     }
   };
 
-  const handleDeleteUser = () => {
-    console.log("later")
-  }
 
   const handleDelete = () => {
     if (subjectType === 'thread') {
