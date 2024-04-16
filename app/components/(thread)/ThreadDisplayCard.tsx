@@ -1,7 +1,6 @@
 import { Thread } from "@/types/Thread";
 import React, { useState } from "react";
 import TimeStamp from "../(util)/TimeStamp";
-import ThreadDotMenu from "./ThreadDotMenu";
 import NewReply from "./NewReply";
 import Link from "next/link";
 import DotMenu from "../(util)/DotMenu";

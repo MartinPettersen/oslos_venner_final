@@ -1,5 +1,4 @@
-import ThreadDisplayCard from "@/app/components/(thread)/ThreadDisplayCard";
-import ThreadDotMenu from "@/app/components/(thread)/ThreadDotMenu";
+import DotMenu from "@/app/components/(util)/DotMenu";
 import TimeStamp from "@/app/components/(util)/TimeStamp";
 import { Thread } from "@/types/Thread";
 import Link from "next/link";
@@ -39,7 +38,7 @@ const ThreadDisplayPlacard = ({ subjectId }: Props) => {
         <div className="  flex text-xl items-center justify-center">
           {thread?.headline}
         </div>
-        <ThreadDotMenu subjectType={"thread"} subjectId={thread?.id}/>
+        <DotMenu subjectType={"thread"} subjectId={thread?.id} creator={false}/>
       </div>
       <div>
       <Link href={`/User/${thread?.userName}`} className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]">
