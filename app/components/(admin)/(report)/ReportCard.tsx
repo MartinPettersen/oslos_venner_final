@@ -6,6 +6,7 @@ import ReportPlacard from "./(reportUtils)/ReportPlacard";
 import UserDisplayPlacard from "./(reportUtils)/UserDisplayPlacard";
 import ThreadDisplayPlacard from "./(reportUtils)/ThreadDisplayPlacard";
 import Link from "next/link";
+import DeleteButton from "../../(util)/DeleteButton";
 
 type Props = {
   report: Report;
@@ -40,12 +41,13 @@ const ReportCard = ({ report }: Props) => {
       )}
       <div className="flex gap-2">
         <div>
-          <ButtonReport label="Slett" />
+          <DeleteButton subjectType={report.subjectType} subjectId={report.subjectId} label={"Slett"} />
         </div>
         <Link href={getUrlPath()}>
           <ButtonReport
             label={report.subjectType !== "user" ? "Se Tråd" : "Se Bruker"}
           />
+
         </Link>
       </div>
     </div>

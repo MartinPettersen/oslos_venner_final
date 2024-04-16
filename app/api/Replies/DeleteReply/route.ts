@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import Thread from '@/app/(models)/Thread';
 import Post from "@/app/(models)/Post";
 import { Reply } from "@/types/Reply";
+import Report from "@/app/(models)/Report";
 
 type ThreadT = {
     headline: String;
@@ -24,7 +25,10 @@ export async function POST(req: any) {
 
         const existingPost = await Post.findOneAndDelete({ postId: replyId }).lean().exec();
 
+        await Report.findOneAndDelete({ subjectId: replyId }).lean().exec();
+
         let existingThread = await Thread.findOne({ id: parentId }).lean().exec() as any as ThreadT;
+
 
         const index = existingThread!.replies.indexOf(replyId);
         if (index > -1) {
