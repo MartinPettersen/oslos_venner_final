@@ -1,7 +1,6 @@
 'use client'
 
 import React from "react";
-import DeleteAccount from "../components/(mypage)/DeleteAccount";
 import MyInfo from "../components/(mypage)/MyInfo";
 
 import { useSession } from 'next-auth/react'
