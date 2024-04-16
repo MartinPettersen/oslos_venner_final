@@ -3,7 +3,7 @@ import CreateUserForm from '../components/(createuser)/CreateUserForm'
 
 const page = () => {
   return (
-    <div className='w-screen h-screen flex flex-col gap-4 items-center sm:items-start justify-center'>
+    <div className='w-screen h-screen flex flex-col gap-4 items-center  justify-center'>
         
         <div className='flex flex-col items-center justify-center   w-full  sm:w-[40%] h-full sm:h-[100%]'>
 
