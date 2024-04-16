@@ -10,6 +10,7 @@ type Props = {
 
 const UserPage = ({ userName }: Props) => {
   const [contentType, setContentType] = useState("replies");
+
   return (
     <div className="flex  flex-col  w-screen h-screen items-center p-4 gap-4">
       <div className="h-1/5"></div>
@@ -21,7 +22,11 @@ const UserPage = ({ userName }: Props) => {
             {userName.replace("%20", " ")}
           </div>
           <div className="w-1/6 text-3xl font-bold">
-          <DotMenu subjectType={"user"} subjectId={userName} />
+            <DotMenu
+              subjectType={"user"}
+              subjectId={userName}
+              creator={false}
+            />
           </div>
         </div>
 

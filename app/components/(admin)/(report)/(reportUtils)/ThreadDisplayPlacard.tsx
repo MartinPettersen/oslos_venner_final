@@ -38,12 +38,19 @@ const ThreadDisplayPlacard = ({ subjectId }: Props) => {
         <div className="  flex text-xl items-center justify-center">
           {thread?.headline}
         </div>
-        <DotMenu subjectType={"thread"} subjectId={thread?.id} creator={false}/>
+        <DotMenu
+          subjectType={"thread"}
+          subjectId={thread?.id}
+          creator={false}
+        />
       </div>
       <div>
-      <Link href={`/User/${thread?.userName}`} className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]">
-        {thread?.userName}
-      </Link>
+        <Link
+          href={`/User/${thread?.userName}`}
+          className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]"
+        >
+          {thread?.userName}
+        </Link>
         <div className="  "></div>
       </div>
       <div className="flex flex-row justify-between ">
