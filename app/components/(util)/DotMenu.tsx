@@ -3,6 +3,7 @@ import { Reply } from "@/types/Reply";
 import React, { useState } from "react";
 import ReportToggle from "../(report)/ReportToggle";
 import ShareToggle from "../(share)/ShareToggle";
+import DeleteButton from "./DeleteButton";
 
 type Props = {
   subjectType: String;
@@ -33,12 +34,7 @@ const DotMenu = ({ subjectType, subjectId, creator }: Props) => {
             <ShareToggle subjectType={subjectType} subjectId={subjectId} />
             {creator ? (
               <>
-                <div
-                  className="bg-light-brown rounded-full dark:rounded-none px-4 cursor-pointer dark:bg-gradient-to-r hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]
- from-orange to-pink text-soft-pink dark:text-dark-grey w-full flex items-center justify-center"
-                >
-                  Slett
-                </div>
+                <DeleteButton subjectType={subjectType} subjectId={subjectId} />
                 <div
                   className="bg-light-brown rounded-full dark:rounded-none px-4 cursor-pointer dark:bg-gradient-to-r hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]
  from-orange to-pink text-soft-pink dark:text-dark-grey w-full flex items-center justify-center"
