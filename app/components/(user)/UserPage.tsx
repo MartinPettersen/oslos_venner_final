@@ -48,7 +48,7 @@ const UserPage = ({ userName }: Props) => {
         </div>
       </div>
 
-      <div className=" ">
+      <div className="w-[90%] sm:w-[30%]">
         <UserContent userName={userName} contentType={contentType} />
       </div>
     </div>
