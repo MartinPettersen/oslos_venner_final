@@ -39,6 +39,21 @@ const CreateUserForm = () => {
     }
   };
 
+  const nameCheck = () => {
+    const reservedNames = ["admin", "deleted"];
+
+    let okName = true
+
+    reservedNames.map((name) => {
+      if (formData.name.toLowerCase() === name) {
+        setErrorMessage("Ugyldig navn");
+        okName = false
+      }
+    });
+
+    return okName;
+  };
+
   const handleChangeRepeatPassword = (e: any) => {
     const value = e.target.value;
     setRepeatPassword(value);
@@ -48,7 +63,7 @@ const CreateUserForm = () => {
     e.preventDefault();
     setErrorMessage("");
 
-    if (passwordMatch()) {
+    if (passwordMatch() && nameCheck()) {
       const res = await fetch("/api/Users/CreateUser", {
         method: "POST",
         body: JSON.stringify({ formData }),
