@@ -7,6 +7,7 @@ import Link from "next/link";
 import DotMenu from "../(util)/DotMenu";
 import { useSession } from "next-auth/react";
 import EditedSign from "../(util)/EditedSign";
+import ReplyMessage from "./ReplyMessage";
 
 type Props = {
   reply?: Reply;
@@ -14,6 +15,7 @@ type Props = {
 
 const ReplyDisplayCard = ({ reply }: Props) => {
   const [newReply, setNewReply] = useState(false);
+  const [editReply, setEditReply] = useState(false);
 
   const { data: session }: any = useSession();
 
@@ -34,9 +36,10 @@ const ReplyDisplayCard = ({ reply }: Props) => {
         >
           {reply?.userName}
         </Link>
-        <DotMenu subjectId={reply?.postId} subjectType={"post"} creator={creatorMenu()}/>
+        <DotMenu subjectId={reply?.postId} subjectType={"post"} creator={creatorMenu()} setEditReply={setEditReply}/>
       </div>
-      <div>{reply?.reply}</div>
+      
+      <ReplyMessage editReply={editReply} reply={reply!} /> 
       <div className="flex flex-row justify-between">
         <div
           onClick={() => setNewReply(true)}

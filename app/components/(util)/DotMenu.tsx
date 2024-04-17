@@ -4,14 +4,16 @@ import React, { useState } from "react";
 import ReportToggle from "../(report)/ReportToggle";
 import ShareToggle from "../(share)/ShareToggle";
 import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
 
 type Props = {
   subjectType: String;
   subjectId?: String;
   creator: boolean;
+  setEditReply?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const DotMenu = ({ subjectType, subjectId, creator }: Props) => {
+const DotMenu = ({ subjectType, subjectId, creator, setEditReply }: Props) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
@@ -35,12 +37,8 @@ const DotMenu = ({ subjectType, subjectId, creator }: Props) => {
             {creator ? (
               <>
                 <DeleteButton subjectType={subjectType} subjectId={subjectId} label={"Slett"}/>
-                <div
-                  className="bg-light-brown rounded-full dark:rounded-none px-4 cursor-pointer dark:bg-gradient-to-r hover:drop-shadow-xl  relative hover:bottom-[2px] hover:right-[3px]
- from-orange to-pink text-soft-pink dark:text-dark-grey w-full flex items-center justify-center"
-                >
-                  Edit
-                </div>
+                
+                <EditButton setEditReply={setEditReply}/>
               </>
             ) : null}
           </div>
