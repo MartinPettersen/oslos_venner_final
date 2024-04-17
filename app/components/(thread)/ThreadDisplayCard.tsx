@@ -8,6 +8,7 @@ import DotMenu from "../(util)/DotMenu";
 import { useSession } from "next-auth/react";
 import EditedSign from "../(util)/EditedSign";
 import ThreadHeadline from "./(edit)/ThreadHeadline";
+import ThreadContent from "./(edit)/ThreadContent";
 
 type Props = {
   thread?: Thread;
@@ -47,9 +48,7 @@ const ThreadDisplayCard = ({ thread }: Props) => {
           {thread?.userName}:
         </Link>
       </div>
-      <div>
-        {thread?.content}
-      </div>
+      <ThreadContent thread={thread!} editThread={editToggle} content={"headline"} />
       <div className="flex flex-row justify-between ">
         <div
           onClick={() => setNewReply(true)}

@@ -6,7 +6,7 @@ type Props = {
   thread?: Thread;
 };
 
-const EditThreadForm = ({ thread }: Props) => {
+const EditThreadHeadline = ({ thread }: Props) => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const [form, setForm] = useState({
@@ -49,12 +49,12 @@ const EditThreadForm = ({ thread }: Props) => {
     <div>
       <form onSubmit={handleSubmit} method="post" className="flex gap-2">
         <input
-          id="content"
+          id="headline"
           type="text"
-          name="content"
+          name="headline"
           onChange={handleChange}
           required={true}
-          value={form.content}
+          value={form.headline}
           className="text-black bg-soft-pink dark:bg-grey hover:bg-orange"
         />
         <input
@@ -67,4 +67,4 @@ const EditThreadForm = ({ thread }: Props) => {
   );
 };
 
-export default EditThreadForm;
+export default EditThreadHeadline;

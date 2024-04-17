@@ -10,18 +10,18 @@ type Props = {
   content: String;
 };
 
-const ThreadHeadline = ({ editThread, thread, content }: Props) => {
+const ThreadContent = ({ editThread, thread, content }: Props) => {
   return (
     <div>
       {editThread ? (
-        <EditThreadHeadline thread={thread} />
+        <EditThreadForm thread={thread} />
       ) : (
-        <div className="  flex text-xl items-center justify-center">
-          {thread?.headline}
-        </div>
+        <div>
+        {thread?.content}
+      </div>
       )}
     </div>
   );
 };
 
-export default ThreadHeadline;
+export default ThreadContent;
