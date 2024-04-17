@@ -6,6 +6,7 @@ import NewReply from "../(thread)/NewReply";
 import Link from "next/link";
 import DotMenu from "../(util)/DotMenu";
 import { useSession } from "next-auth/react";
+import EditedSign from "../(util)/EditedSign";
 
 type Props = {
   reply?: Reply;
@@ -51,6 +52,9 @@ const ReplyDisplayCard = ({ reply }: Props) => {
             setNewReply={setNewReply}
           />
         ) : null}
+        <div>
+          <EditedSign createdAt={reply?.createdAt} updatedAt={reply?.updatedAt}/>
+        </div>
         <div>
           <TimeStamp createdAt={reply?.createdAt} />
         </div>
