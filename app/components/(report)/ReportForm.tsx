@@ -82,7 +82,7 @@ const ReportForm = ({subjectId, subjectType, setToggleWindow}: Props) => {
         <input
           type="submit"
           value="Send Rapport"
-          className="drop-shadow-xl hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]
+          className="drop-shadow-xl cursor-pointer hover:drop-shadow-none relative hover:top-[2px] hover:left-[3px]
 bg-light-brown dark:bg-gradient-to-r p-2 from-orange to-pink text-soft-pink dark:text-dark-grey rounded-xl dark:rounded-none "
         />
       </form>
