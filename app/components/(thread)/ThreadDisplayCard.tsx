@@ -5,6 +5,7 @@ import NewReply from "./NewReply";
 import Link from "next/link";
 import DotMenu from "../(util)/DotMenu";
 import { useSession } from "next-auth/react";
+import EditedSign from "../(util)/EditedSign";
 
 type Props = {
   thread?: Thread;
@@ -66,6 +67,7 @@ const ThreadDisplayCard = ({ thread }: Props) => {
           <div className=" flex items-center justify-center">
             {thread?.replies.length}
           </div>
+          <EditedSign createdAt={thread?.createdAt} updatedAt={thread?.updatedAt} /> 
           <TimeStamp createdAt={thread?.createdAt} />
         </div>
       </div>
