@@ -1,19 +1,19 @@
 "use client";
 import { Reply } from "@/types/Reply";
 import React, { useState } from "react";
-import EditReplyForm from "./EditReplyForm";
+import EditReplyForm from "./(edit)/EditReplyForm";
 
 type Props = {
-  editReply: boolean;
+  editToggle: boolean;
   reply: Reply;
 };
 
-const ReplyMessage = ({ editReply, reply }: Props) => {
+const ReplyMessage = ({ editToggle, reply }: Props) => {
 
 
   return (
     <div>
-      {editReply ? (
+      {editToggle ? (
           <EditReplyForm reply={reply} />
     ) : (
         <div>{reply?.reply}</div>

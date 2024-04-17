@@ -1,3 +1,4 @@
+"use client"
 import { Thread } from "@/types/Thread";
 import React, { useState } from "react";
 import TimeStamp from "../(util)/TimeStamp";
@@ -6,6 +7,7 @@ import Link from "next/link";
 import DotMenu from "../(util)/DotMenu";
 import { useSession } from "next-auth/react";
 import EditedSign from "../(util)/EditedSign";
+import ThreadHeadline from "./(edit)/ThreadHeadline";
 
 type Props = {
   thread?: Thread;
@@ -13,6 +15,7 @@ type Props = {
 
 const ThreadDisplayCard = ({ thread }: Props) => {
   const [newReply, setNewReply] = useState(false);
+  const [editToggle, setEditToggle] = useState(false);
 
   const { data: session }: any = useSession();
 
@@ -25,15 +28,14 @@ const ThreadDisplayCard = ({ thread }: Props) => {
   };
 
   return (
-    <div className="flex  flex-col w-[90%] sm:w-[40%] bg-green rounded-md p-2 dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey dark:rounded-none">
+    <div className="flex  flex-col w-[90%] sm:w-[40%] bg-green rounded-md p-2  dark:bg-gradient-to-r from-orange to-pink text-soft-pink dark:text-dark-grey dark:rounded-none">
       <div className="flex w-full justify-between">
-        <div className="  flex text-xl items-center justify-center">
-          {thread?.headline}
-        </div>
+        <ThreadHeadline editThread={editToggle} thread={thread!} content={"headline"} />
         <DotMenu
           subjectType={"thread"}
           subjectId={thread?.id}
           creator={creatorMenu()}
+          setEditToggle={setEditToggle}
         />
         {}
       </div>

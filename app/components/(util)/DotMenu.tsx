@@ -10,10 +10,10 @@ type Props = {
   subjectType: String;
   subjectId?: String;
   creator: boolean;
-  setEditReply?: React.Dispatch<React.SetStateAction<boolean>>;
+  setEditToggle?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const DotMenu = ({ subjectType, subjectId, creator, setEditReply }: Props) => {
+const DotMenu = ({ subjectType, subjectId, creator, setEditToggle }: Props) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
@@ -38,7 +38,7 @@ const DotMenu = ({ subjectType, subjectId, creator, setEditReply }: Props) => {
               <>
                 <DeleteButton subjectType={subjectType} subjectId={subjectId} label={"Slett"}/>
                 
-                <EditButton setEditReply={setEditReply}/>
+                <EditButton setEditToggle={setEditToggle}/>
               </>
             ) : null}
           </div>

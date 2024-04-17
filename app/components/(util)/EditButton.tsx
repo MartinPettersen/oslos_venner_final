@@ -1,13 +1,13 @@
 import React from "react";
 
 type Props = {
-  setEditReply?: React.Dispatch<React.SetStateAction<boolean>>;
+  setEditToggle?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const EditButton = ({ setEditReply }: Props) => {
+const EditButton = ({ setEditToggle }: Props) => {
 
     const handleEdit = () => {
-        setEditReply!(true)
+        setEditToggle!(true)
     }
   return (
     <div

@@ -15,7 +15,7 @@ type Props = {
 
 const ReplyDisplayCard = ({ reply }: Props) => {
   const [newReply, setNewReply] = useState(false);
-  const [editReply, setEditReply] = useState(false);
+  const [editToggle, setEditToggle] = useState(false);
 
   const { data: session }: any = useSession();
 
@@ -36,10 +36,10 @@ const ReplyDisplayCard = ({ reply }: Props) => {
         >
           {reply?.userName}
         </Link>
-        <DotMenu subjectId={reply?.postId} subjectType={"post"} creator={creatorMenu()} setEditReply={setEditReply}/>
+        <DotMenu subjectId={reply?.postId} subjectType={"post"} creator={creatorMenu()} setEditToggle={setEditToggle}/>
       </div>
       
-      <ReplyMessage editReply={editReply} reply={reply!} /> 
+      <ReplyMessage editToggle={editToggle} reply={reply!} /> 
       <div className="flex flex-row justify-between">
         <div
           onClick={() => setNewReply(true)}
