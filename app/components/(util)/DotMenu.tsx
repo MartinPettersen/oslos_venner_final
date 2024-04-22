@@ -5,6 +5,8 @@ import ReportToggle from "../(report)/ReportToggle";
 import ShareToggle from "../(share)/ShareToggle";
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
+import PopupWindow from "./PopupWindow";
+import DeleteWindow from "./DeleteWindow";
 
 type Props = {
   subjectType: String;
@@ -15,6 +17,8 @@ type Props = {
 
 const DotMenu = ({ subjectType, subjectId, creator, setEditToggle }: Props) => {
   const [toggleMenu, setToggleMenu] = useState(false);
+
+  const [toggleWindow, setToggleWindow] = useState(false);
 
   return (
     <div>
@@ -36,14 +40,26 @@ const DotMenu = ({ subjectType, subjectId, creator, setEditToggle }: Props) => {
             <ShareToggle subjectType={subjectType} subjectId={subjectId} />
             {creator ? (
               <>
-                <DeleteButton subjectType={subjectType} subjectId={subjectId} label={"Slett"}/>
-                
-                <EditButton setEditToggle={setEditToggle}/>
+                <DeleteButton
+
+                  label={"Slett"}
+                  setToggleWindow={setToggleWindow}
+                  setToggleMenu={setToggleMenu}
+                />
+                <EditButton setEditToggle={setEditToggle} />
               </>
             ) : null}
           </div>
         </>
       )}
+
+      <PopupWindow
+        setToggleWindow={setToggleWindow}
+        toggleWindow={toggleWindow}
+      >
+
+        <DeleteWindow subjectType={subjectType} subjectId={subjectId} setToggleWindow={setToggleWindow}/>
+      </PopupWindow>
     </div>
   );
 };
