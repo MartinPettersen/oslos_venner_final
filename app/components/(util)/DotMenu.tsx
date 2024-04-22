@@ -1,5 +1,4 @@
 "use client";
-import { Reply } from "@/types/Reply";
 import React, { useState } from "react";
 import ReportToggle from "../(report)/ReportToggle";
 import ShareToggle from "../(share)/ShareToggle";

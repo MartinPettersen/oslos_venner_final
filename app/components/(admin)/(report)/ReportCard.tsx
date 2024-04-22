@@ -1,5 +1,6 @@
+'use client'
 import { Report } from "@/types/Report";
-import React from "react";
+import React, { useState } from "react";
 import ReportedReply from "./ReportedReply";
 import ButtonReport from "./(reportUtils)/ButtonReport";
 import ReportPlacard from "./(reportUtils)/ReportPlacard";
@@ -7,6 +8,8 @@ import UserDisplayPlacard from "./(reportUtils)/UserDisplayPlacard";
 import ThreadDisplayPlacard from "./(reportUtils)/ThreadDisplayPlacard";
 import Link from "next/link";
 import DeleteButton from "../../(util)/DeleteButton";
+import PopupWindow from "../../(util)/PopupWindow";
+import DeleteWindow from "../../(util)/DeleteWindow";
 
 type Props = {
   report: Report;
@@ -14,6 +17,9 @@ type Props = {
 
 const ReportCard = ({ report }: Props) => {
 
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleWindow, setToggleWindow] = useState(false);
+  
   const getUrlPath = () => {
     if (report.subjectType !== "post") {
       const subject = report.subjectType.charAt(0).toUpperCase() + report.subjectType.slice(1)
@@ -41,7 +47,7 @@ const ReportCard = ({ report }: Props) => {
       )}
       <div className="flex gap-2">
         <div>
-          <DeleteButton subjectType={report.subjectType} subjectId={report.subjectId} label={"Slett"} />
+          <DeleteButton  label={"Slett"} setToggleWindow={setToggleWindow} setToggleMenu={setToggleMenu} />
         </div>
         <Link href={getUrlPath()}>
           <ButtonReport
@@ -50,6 +56,13 @@ const ReportCard = ({ report }: Props) => {
 
         </Link>
       </div>
+      <PopupWindow
+        setToggleWindow={setToggleWindow}
+        toggleWindow={toggleWindow}
+      >
+
+        <DeleteWindow subjectType={report.subjectType} subjectId={report.subjectId} setToggleWindow={setToggleWindow}/>
+      </PopupWindow>
     </div>
   );
 };
