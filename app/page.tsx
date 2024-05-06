@@ -4,15 +4,6 @@ import { useEffect } from "react";
 import ForumContainer from "./components/(forum)/ForumContainer";
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  }, []);
 
   return (
     <main className="flex h-screen flex-col items-center justify-start p-24 ">
